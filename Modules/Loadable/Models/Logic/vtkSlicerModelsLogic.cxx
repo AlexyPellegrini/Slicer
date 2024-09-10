@@ -33,10 +33,8 @@
 #include <vtkPolyDataNormals.h>
 #include <vtkSmartPointer.h>
 #include <vtkTagTable.h>
-
-/// ITK includes
-#include <itksys/Directory.hxx>
-#include <itksys/SystemTools.hxx>
+#include <vtksys/Directory.hxx>
+#include <vtksys/SystemTools.hxx>
 
 /// STD includes
 #include <cassert>
@@ -258,7 +256,7 @@ int vtkSlicerModelsLogic::AddModels(const char* dirname,
                                     vtkMRMLMessageCollection* userMessages /*=nullptr*/)
 {
   std::string ssuf = suffix;
-  itksys::Directory dir;
+  vtksys::Directory dir;
   dir.Load(dirname);
 
   int nfiles = dir.GetNumberOfFiles();
@@ -319,9 +317,9 @@ vtkMRMLModelNode* vtkSlicerModelsLogic::AddModel(const char* filename,
   }
 
   // Check if we can read this type of file.
-  // The model name is based on the file name (itksys call should work even if
+  // The model name is based on the file name (vtksys call should work even if
   // file is not on disk yet).
-  std::string name = itksys::SystemTools::GetFilenameName(localFile);
+  std::string name = vtksys::SystemTools::GetFilenameName(localFile);
   vtkDebugMacro("AddModel: got model name = " << name.c_str());
   if (!storageNode->SupportedFileType(name.c_str()))
   {
