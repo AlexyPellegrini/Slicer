@@ -53,7 +53,7 @@
 #include <vtkReverseSense.h>
 #include <vtkStringToNumeric.h>
 #include <vtkStringArray.h>
-//#include <vtkSurfaceNets3D.h>
+#include <vtkSurfaceNets3D.h>
 #include <vtkSelection.h>
 #include <vtkSelectionNode.h>
 #include <vtkFloatArray.h>
@@ -350,7 +350,6 @@ bool vtkBinaryLabelmapToClosedSurfaceConversionRule::CreateClosedSurface(vtkOrie
     }
     processingResult = flyingEdges->GetOutput();
   }
-  /*
   else if (conversionMethod == vtkBinaryLabelmapToClosedSurfaceConversionRule::CONVERSION_METHOD_SURFACE_NETS)
   {
     vtkNew<vtkSurfaceNets3D> surfaceNets;
@@ -391,7 +390,7 @@ bool vtkBinaryLabelmapToClosedSurfaceConversionRule::CreateClosedSurface(vtkOrie
       return false;
     }
     processingResult = surfaceNets->GetOutput();
-  }*/
+  }
   else
   {
     vtkErrorMacro("Conversion Rule: Unknown surface generation method");
