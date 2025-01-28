@@ -217,6 +217,9 @@ set(classes
   )
 
 set(headers
+  vtkMRML.h
+  vtkMRMLExport.h
+  vtkMRMLNodePropertyMacros.h
   vtkMRMLTranslator.h
   vtkMRMLSubjectHierarchyConstants.h
   ${CMAKE_CURRENT_BINARY_DIR}/${configure_header_file})
