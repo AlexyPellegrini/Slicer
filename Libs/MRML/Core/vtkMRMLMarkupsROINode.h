@@ -22,11 +22,11 @@
 #define __vtkMRMLMarkupsROINode_h
 
 // MRML includes
+#include "vtkMRML.h"
 #include "vtkMRMLDisplayableNode.h"
 #include "vtkMRMLModelNode.h"
 
 // Markups includes
-#include "vtkMRMLExport.h"
 #include "vtkMRMLMarkupsDisplayNode.h"
 #include "vtkMRMLMarkupsNode.h"
 

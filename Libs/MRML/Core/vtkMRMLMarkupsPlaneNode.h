@@ -22,12 +22,12 @@
 #define __vtkMRMLMarkupsPlaneNode_h
 
 // MRML includes
+#include "vtkMRML.h"
 #include "vtkMRMLDisplayableNode.h"
 
 // Markups includes
 #include "vtkMRMLMarkupsDisplayNode.h"
 #include "vtkMRMLMarkupsNode.h"
-#include "vtkMRMLExport.h"
 
 // VTK includes
 #include <vtkMatrix4x4.h>

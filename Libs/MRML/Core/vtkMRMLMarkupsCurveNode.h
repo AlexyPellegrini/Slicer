@@ -23,7 +23,7 @@
 #include "vtkMRMLModelNode.h"
 
 // Markups includes
-#include "vtkMRMLExport.h"
+#include "vtkMRML.h"
 #include "vtkMRMLMarkupsDisplayNode.h"
 #include "vtkMRMLMarkupsNode.h"
 

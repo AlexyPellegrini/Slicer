@@ -24,8 +24,7 @@
 #ifndef __vtkMRMLMarkupsFiducialDisplayNode_h
 #define __vtkMRMLMarkupsFiducialDisplayNode_h
 
-#include "vtkMRMLExport.h"
-
+#include "vtkMRML.h"
 #include "vtkMRMLMarkupsDisplayNode.h"
 
 class vtkMRMLProceduralColorNode;

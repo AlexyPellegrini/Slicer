@@ -31,7 +31,7 @@
 // Slicer includes
 #include "vtkSlicerModuleLogic.h"
 
-#include "vtkSlicerSubjectHierarchyModuleLogicExport.h"
+#include "vtkSlicerSubjectHierarchyModuleLogicModule.h"
 
 class vtkMRMLSubjectHierarchyNode;
 class vtkMRMLTransformNode;

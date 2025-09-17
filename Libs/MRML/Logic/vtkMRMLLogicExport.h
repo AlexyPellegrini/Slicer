@@ -15,15 +15,6 @@
 #define __vtkMRMLLogicExport_h
 
 #include <vtkMRMLLogicConfigure.h>
-
-#if defined(_WIN32) && !defined(VTKMRMLLogic_STATIC)
-# if defined(MRMLLogic_EXPORTS)
-#  define VTK_MRML_LOGIC_EXPORT __declspec(dllexport)
-# else
-#  define VTK_MRML_LOGIC_EXPORT __declspec(dllimport)
-# endif
-#else
-# define VTK_MRML_LOGIC_EXPORT
-#endif
+#include <vtkMRMLLogicModule.h>
 
 #endif

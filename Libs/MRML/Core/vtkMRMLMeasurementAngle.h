@@ -19,10 +19,8 @@
 #define __vtkMRMLMeasurementAngle_h
 
 // MRML includes
+#include "vtkMRML.h"
 #include "vtkMRMLMeasurement.h"
-
-// Markups includes
-#include "vtkMRMLExport.h"
 
 /// \brief Measurement class calculating angle
 class VTK_MRML_EXPORT vtkMRMLMeasurementAngle : public vtkMRMLMeasurement

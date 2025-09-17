@@ -18,8 +18,7 @@
 #ifndef __vtkProjectMarkupsCurvePointsFilter_h
 #define __vtkProjectMarkupsCurvePointsFilter_h
 
-#include "vtkMRMLExport.h"
-
+#include "vtkMRML.h"
 #include <vtkInformation.h>
 #include <vtkPolyDataAlgorithm.h>
 #include <vtkWeakPointer.h>

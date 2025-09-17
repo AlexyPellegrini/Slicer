@@ -19,13 +19,11 @@
 #define __vtkMRMLMarkupsNode_h
 
 // MRML includes
+#include "vtkMRML.h"
 #include "vtkMRMLDisplayableNode.h"
 #include "vtkCurveGenerator.h"
 #include "vtkMRMLMeasurement.h"
 #include "vtkMRMLSelectionNode.h"
-
-// Markups includes
-#include "vtkMRMLExport.h"
 
 // VTK includes
 #include <vtkParallelTransportFrame.h>

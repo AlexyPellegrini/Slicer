@@ -19,10 +19,10 @@
 #define __vtkMRMLMarkupsLineNode_h
 
 // MRML includes
+#include "vtkMRML.h"
 #include "vtkMRMLDisplayableNode.h"
 
 // Markups includes
-#include "vtkMRMLExport.h"
 #include "vtkMRMLMarkupsDisplayNode.h"
 #include "vtkMRMLMarkupsNode.h"
 

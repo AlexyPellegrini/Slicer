@@ -1733,7 +1733,7 @@ void qSlicerMarkupsModuleWidget::onMissingControlPointPushButtonClicked()
     }
     else
     {
-      d->MarkupsNode->SetNthControlPointPositionMissing(index);
+      d->MarkupsNode->SetControlPointPositionMissing(index);
     }
   }
 }
@@ -2112,7 +2112,7 @@ void qSlicerMarkupsModuleWidget::onActiveMarkupTableCellChanged(int row, int col
     else if (item->data(Qt::UserRole) == QVariant(vtkMRMLMarkupsNode::PositionMissing))
     {
       item->setData(Qt::DecorationRole, QPixmap(":/Icons/XSmall/MarkupsMissing.png"));
-      d->MarkupsNode->SetNthControlPointPositionMissing(row);
+      d->MarkupsNode->SetControlPointPositionMissing(row);
       if (!persistenceModeEnabled)
       {
         d->setPlaceModeEnabled(false);

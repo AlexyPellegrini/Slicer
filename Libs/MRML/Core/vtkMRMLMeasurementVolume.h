@@ -19,10 +19,8 @@
 #define __vtkMRMLMeasurementVolume_h
 
 // MRML includes
+#include "vtkMRML.h"
 #include "vtkMRMLMeasurement.h"
-
-// Markups includes
-#include "vtkMRMLExport.h"
 
 /// \brief Measurement class calculating Volume enclosed in a ROI
 class VTK_MRML_EXPORT vtkMRMLMeasurementVolume : public vtkMRMLMeasurement

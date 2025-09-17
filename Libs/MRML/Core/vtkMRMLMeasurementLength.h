@@ -19,10 +19,8 @@
 #define __vtkMRMLMeasurementLength_h
 
 // MRML includes
+#include "vtkMRML.h"
 #include "vtkMRMLMeasurement.h"
-
-// Markups includes
-#include "vtkMRMLExport.h"
 
 /// \brief Measurement class calculating curve length
 class VTK_MRML_EXPORT vtkMRMLMeasurementLength : public vtkMRMLMeasurement
