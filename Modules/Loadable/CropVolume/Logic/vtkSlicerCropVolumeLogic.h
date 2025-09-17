@@ -27,7 +27,7 @@ class vtkMRMLDisplayableNode;
 // vtk includes
 class vtkMatrix4x4;
 // CropVolumes includes
-#include "vtkSlicerCropVolumeModuleLogicExport.h"
+#include "vtkSlicerCropVolumeModuleLogicModule.h"
 class vtkMRMLCropVolumeParametersNode;
 
 /// \class vtkSlicerCropVolumeLogic

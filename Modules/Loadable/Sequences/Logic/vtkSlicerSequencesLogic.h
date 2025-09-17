@@ -31,7 +31,7 @@
 // STD includes
 #include <cstdlib>
 
-#include "vtkSlicerSequencesModuleLogicExport.h"
+#include "vtkSlicerSequencesModuleLogicModule.h"
 
 class vtkMRMLMessageCollection;
 class vtkMRMLNode;

@@ -267,7 +267,7 @@ int vtkSlicerModelsLogic::AddModels(const char* dirname,
   {
     const char* filename = dir.GetFile(i);
     std::string sname = filename;
-    if (!itksys::SystemTools::FileIsDirectory(filename))
+    if (!vtksys::SystemTools::FileIsDirectory(filename))
     {
       if (sname.find(ssuf) != std::string::npos)
       {
