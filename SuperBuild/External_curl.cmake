@@ -90,6 +90,7 @@ if((NOT DEFINED CURL_INCLUDE_DIR
       -DBUILD_TESTING:BOOL=OFF
       -DBUILD_CURL_EXE:BOOL=OFF
       -DBUILD_SHARED_LIBS:BOOL=OFF  # Before enabling this option, see https://github.com/Slicer/curl/commit/ca5fe8e63df7faea0bfb988ef3fe58f538e6950b
+      -DCMAKE_POSITION_INDEPENDENT_CODE:BOOL=ON
       -DENABLE_ARES:BOOL=OFF
       -DCURL_ZLIB:BOOL=ON
       -DZLIB_INCLUDE_DIR:PATH=${ZLIB_INCLUDE_DIR}
@@ -109,8 +110,6 @@ if((NOT DEFINED CURL_INCLUDE_DIR
     DEPENDS
       ${${proj}_DEPENDENCIES}
     )
-
-  ExternalProject_GenerateProjectDescription_Step(${proj})
 
   if(UNIX)
     set(curl_IMPORT_SUFFIX .a)
@@ -136,6 +135,3 @@ mark_as_superbuild(
     CURL_LIBRARY:FILEPATH
   LABELS "FIND_PACKAGE"
   )
-
-ExternalProject_Message(${proj} "CURL_INCLUDE_DIR:${CURL_INCLUDE_DIR}")
-ExternalProject_Message(${proj} "CURL_LIBRARY:${CURL_LIBRARY}")

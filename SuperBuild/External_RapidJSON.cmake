@@ -66,6 +66,8 @@ if(NOT DEFINED ${proj}_DIR AND NOT Slicer_USE_SYSTEM_${proj})
       -DRAPIDJSON_BUILD_CXX11:BOOL=OFF
       -DRAPIDJSON_BUILD_CXX17:BOOL=${_build_cxx17}
       -DRAPIDJSON_BUILD_CXX20:BOOL=${_build_cxx20}
+      -DCMAKE_C_COMPILER:FILEPATH=${CMAKE_C_COMPILER}
+      -DCMAKE_C_FLAGS:STRING=${ep_common_c_flags} # Unused
       -DRAPIDJSON_BUILD_DOC:BOOL=OFF
       -DRAPIDJSON_BUILD_EXAMPLES:BOOL=OFF
       -DRAPIDJSON_BUILD_TESTS:BOOL=OFF
@@ -84,8 +86,6 @@ if(NOT DEFINED ${proj}_DIR AND NOT Slicer_USE_SYSTEM_${proj})
     DEPENDS
       ${${proj}_DEPENDENCIES}
     )
-
-  ExternalProject_GenerateProjectDescription_Step(${proj})
 
   set(${proj}_DIR "${EP_INSTALL_DIR}/lib/cmake/RapidJSON/")
 

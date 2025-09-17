@@ -63,6 +63,7 @@ if((NOT DEFINED LibArchive_INCLUDE_DIR
     # Not used -DCMAKE_CXX_FLAGS:STRING=${ep_common_cxx_flags}
       -DCMAKE_C_COMPILER:FILEPATH=${CMAKE_C_COMPILER}
       -DCMAKE_C_FLAGS:STRING=${ep_common_c_flags}
+      -DCMAKE_BUILD_TYPE:STRING=${CMAKE_BUILD_TYPE}
       -DBUILD_SHARED_LIBS:BOOL=ON
       -DBUILD_TESTING:BOOL=OFF
       -DENABLE_ACL:BOOL=OFF
@@ -104,8 +105,6 @@ if((NOT DEFINED LibArchive_INCLUDE_DIR
       )
   endif()
 
-  ExternalProject_GenerateProjectDescription_Step(${proj})
-
   set(LibArchive_DIR ${CMAKE_BINARY_DIR}/LibArchive-install)
 
   set(LibArchive_INCLUDE_DIR ${LibArchive_DIR}/include)
@@ -141,8 +140,3 @@ mark_as_superbuild(
     LibArchive_LIBRARY:FILEPATH
   LABELS "FIND_PACKAGE"
   )
-
-if(Slicer_USE_SYSTEM_${proj})
-  ExternalProject_Message(${proj} "LibArchive_INCLUDE_DIR:${LibArchive_INCLUDE_DIR}")
-  ExternalProject_Message(${proj} "LibArchive_LIBRARY:${LibArchive_LIBRARY}")
-endif()

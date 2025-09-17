@@ -1,0 +1,13 @@
+NAME
+  Slicer::RemoteIO
+LIBRARY_NAME
+  vtkRemoteIO
+DEPENDS
+  VTK::CommonCore
+  VTK::CommonDataModel
+  VTK::CommonExecutionModel
+TEST_DEPENDS
+  VTK::TestingCore
+  VTK::TestingRendering
+DESCRIPTION
+  "vtkRemoteIO"

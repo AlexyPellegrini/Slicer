@@ -21,23 +21,6 @@ if(DEFINED Teem_DIR AND NOT EXISTS ${Teem_DIR})
 endif()
 
 if(NOT DEFINED Teem_DIR AND NOT Slicer_USE_SYSTEM_${proj})
-
-  set(EXTERNAL_PROJECT_OPTIONAL_CMAKE_CACHE_ARGS)
-
-  set(CMAKE_PROJECT_INCLUDE_EXTERNAL_PROJECT_ARG)
-  if(CTEST_USE_LAUNCHERS)
-    set(CMAKE_PROJECT_INCLUDE_EXTERNAL_PROJECT_ARG
-      "-DCMAKE_PROJECT_Teem_INCLUDE:FILEPATH=${CMAKE_ROOT}/Modules/CTestUseLaunchers.cmake")
-  endif()
-
-  # Following CMake commit 2a7975398, the FindPNG.cmake module
-  # supports detection of release and debug libraries. Specifying only
-  # the release variable is enough to ensure the variable PNG_LIBRARY
-  # is internally set if the project is built either in Debug or Release.
-  list(APPEND EXTERNAL_PROJECT_OPTIONAL_CMAKE_CACHE_ARGS
-    -DPNG_LIBRARY_RELEASE:FILEPATH=${PNG_LIBRARY}
-    )
-
   ExternalProject_SetIfNotDefined(
     Slicer_${proj}_GIT_REPOSITORY
     "${EP_GIT_PROTOCOL}://github.com/Slicer/teem"
@@ -53,6 +36,11 @@ if(NOT DEFINED Teem_DIR AND NOT Slicer_USE_SYSTEM_${proj})
   set(EP_SOURCE_DIR ${CMAKE_BINARY_DIR}/${proj})
   set(EP_BINARY_DIR ${CMAKE_BINARY_DIR}/${proj}-build)
 
+  set(build_shared_teem TRUE)
+  if(SLICERLIB_PYTHON_BUILD) # when building slicerlib wheel use a static Teem
+    set(build_shared_teem FALSE)
+  endif()
+
   ExternalProject_Add(${proj}
     ${${proj}_EP_ARGS}
     GIT_REPOSITORY "${Slicer_${proj}_GIT_REPOSITORY}"
@@ -65,8 +53,9 @@ if(NOT DEFINED Teem_DIR AND NOT Slicer_USE_SYSTEM_${proj})
       -DCMAKE_C_COMPILER:FILEPATH=${CMAKE_C_COMPILER}
       -DCMAKE_C_FLAGS:STRING=${ep_common_c_flags}
       -DBUILD_TESTING:BOOL=OFF
-      -DBUILD_SHARED_LIBS:BOOL=ON
-      ${CMAKE_PROJECT_INCLUDE_EXTERNAL_PROJECT_ARG}
+      -DBUILD_SHARED_LIBS:BOOL=${build_shared_teem}
+      -DCMAKE_POSITION_INDEPENDENT_CODE:BOOL=ON
+      -DCMAKE_BUILD_TYPE:STRING=${CMAKE_BUILD_TYPE}
       -DTeem_USE_LIB_INSTALL_SUBDIR:BOOL=ON
       -DCMAKE_VERBOSE_MAKEFILE:BOOL=OFF
       -DTeem_PTHREAD:BOOL=OFF
@@ -84,8 +73,6 @@ if(NOT DEFINED Teem_DIR AND NOT Slicer_USE_SYSTEM_${proj})
     DEPENDS
       ${${proj}_DEPENDENCIES}
     )
-
-  ExternalProject_GenerateProjectDescription_Step(${proj})
 
   set(Teem_DIR ${EP_BINARY_DIR})
 
@@ -110,7 +97,6 @@ if(NOT DEFINED Teem_DIR AND NOT Slicer_USE_SYSTEM_${proj})
       LABELS "LIBRARY_PATHS_LAUNCHER_INSTALLED"
       )
   endif()
-
 else()
   ExternalProject_Add_Empty(${proj} DEPENDS ${${proj}_DEPENDENCIES})
 endif()
