@@ -1114,6 +1114,7 @@ include(vtkMacroKitPythonWrap)
 # Slicer Library
 #-----------------------------------------------------------------------------
 
+find_package(SlicerExecutionModel REQUIRED COMPONENTS ModuleDescriptionParser)
 find_package(vtkSlicerLibrary CONFIG REQUIRED)
 include(SlicerLibraryAliases) # to facilitate transition
 

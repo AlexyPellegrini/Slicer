@@ -38,9 +38,7 @@ set(KIT_include_directories
   ${qSlicerBaseQTGUI_SOURCE_DIR}
   ${qSlicerBaseQTGUI_BINARY_DIR}
   ${ModuleDescriptionParser_INCLUDE_DIRS}
-  ${MRMLCLI_INCLUDE_DIRS}
-  ${MRMLLogic_INCLUDE_DIRS}
-  )
+)
 
 # Source files
 set(KIT_SRCS

@@ -9,6 +9,7 @@ set(${KIT}_INCLUDE_DIRECTORIES
   ${qSlicerTerminologiesModuleWidgets_INCLUDE_DIRS}
   ${MRMLCore_INCLUDE_DIRS}
   ${MRMLCLI_INCLUDE_DIRS}
+  ${qSlicerBaseQTGUI_INCLUDE_DIRS}
   )
 
 set(${KIT}_SRCS
@@ -96,6 +97,7 @@ set(${KIT}_TARGET_LIBRARIES
   MRMLCore
   vtkSlicerVolumesModuleLogic
   MRMLCLI
+  qSlicerBaseQTGUI
   )
 
 #-----------------------------------------------------------------------------
