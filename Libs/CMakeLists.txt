@@ -9,21 +9,12 @@ set(GENERATECLP_USE_MD5 ON)
 # Order of project directory matters. Project should be topologically ordered
 # --------------------------------------------------------------------------
 
-set(dirs )
-
-list(APPEND dirs
-  ITKFactoryRegistration
-  )
 set(SlicerExecutionModel_EXTRA_EXECUTABLE_TARGET_LIBRARIES
   ${SlicerExecutionModel_EXTRA_EXECUTABLE_TARGET_LIBRARIES} ITKFactoryRegistration
   CACHE INTERNAL "SlicerExecutionModel extra executable target libraries" FORCE
   )
 
-if(Slicer_BUILD_vtkAddon)
-  list(APPEND dirs
-    vtkAddon
-    )
-endif()
+find_package(vtkAddon REQUIRED)
 
 list(APPEND dirs
   vtkTeem
@@ -146,28 +137,3 @@ set(Slicer_Libs_INCLUDE_DIRS ${include_dirs} CACHE INTERNAL "Slicer Libs include
 # Note also that since MRMLIDImageIO is an ITK plugin it is NOT added to that list.
 set(_mrml_libraries MRMLCore MRMLLogic MRMLDisplayableManager MRMLCLI)
 set(MRML_LIBRARIES ${_mrml_libraries} CACHE INTERNAL "MRML libraries" FORCE)
-
-#-----------------------------------------------------------------------------
-# Set variable Slicer_Libs_VTK_WRAPPED_LIBRARIES
-#-----------------------------------------------------------------------------
-set(_vtk_wrapped_libraries
-  vtkSegmentationCore
-  vtkTeem
-  vtkITK
-  MRMLCore
-  MRMLLogic
-  )
-
-if(Slicer_BUILD_vtkAddon)
-  list(APPEND _vtk_wrapped_libraries
-    vtkAddon
-    )
-endif()
-if(Slicer_USE_PYTHONQT AND VTK_WRAP_PYTHON)
-  list(APPEND _vtk_wrapped_libraries MRMLDisplayableManager)
-endif()
-
-list(APPEND _vtk_wrapped_libraries MRMLCLI)
-
-set(Slicer_Libs_VTK_WRAPPED_LIBRARIES
-  ${_vtk_wrapped_libraries} CACHE INTERNAL "Slicer Libs VTK wrapped" FORCE)
