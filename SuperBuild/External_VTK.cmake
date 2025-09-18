@@ -287,13 +287,9 @@ Version: @vtk_dist_info_version@
       )
 
     # pythonpath
-    set(_library_install_subdir "bin")
-    if(UNIX)
-      set(_library_install_subdir "lib")
-    endif()
     if(UNIX)
       set(${proj}_PYTHONPATH_LAUNCHER_INSTALLED
-        <APPLAUNCHER_SETTINGS_DIR>/../${_library_install_subdir}/python${Slicer_REQUIRED_PYTHON_VERSION_DOT}/site-packages
+        <APPLAUNCHER_SETTINGS_DIR>/../lib/python${Slicer_REQUIRED_PYTHON_VERSION_DOT}/site-packages
         )
     else()
       if(${vtk_dist_info_version} VERSION_GREATER_EQUAL 9.4)
