@@ -97,7 +97,7 @@ if(NOT DEFINED ITK_DIR AND NOT Slicer_USE_SYSTEM_${proj})
   endif()
 
   set(build_shared_itk TRUE)
-  if(SLICERLIB_PYTHON_BUILD) # when building slicerlib wheel use a static ITK
+  if(SLICERLIB_PYTHON_BUILD AND MSVC) # when building slicerlib wheel with MSVC use a static ITK
     set(build_shared_itk FALSE)
   endif()
 
