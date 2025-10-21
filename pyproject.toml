@@ -1,5 +1,5 @@
 [build-system]
-requires = ["scikit-build-core", "vtk-sdk==9.4.0"]
+requires = ["scikit-build-core", "vtk-sdk==9.5.0"]
 build-backend = "scikit_build_core.build"
 
 [tool.scikit-build]
@@ -18,9 +18,12 @@ Slicer_BUILD_DICOM_SUPPORT = "ON"
 CMAKE_INSTALL_LIBDIR = "."
 VTK_WHEEL_BUILD = "ON"
 VTK_MODULE_SUPERBUILD = "ON"
+CMAKE_CXX_STANDARD = "17"
+CMAKE_CXX_STANDARD_REQUIRED = "ON"
+CMAKE_CXX_EXTENSIONS = "OFF"
 VTK_MODULE_EXTERNAL_PROJECT_DEPENDENCIES = "teem;tbb;ParameterSerializer;SlicerExecutionModel;LibArchive;RapidJSON;JsonCpp;OpenSSL;curl;ITK;DCMTK;vtkAddon"
 
 [project]
 name = "vtk-mrml"
-version = "9.4.0"
-dependencies = ["vtk==9.4.0"]
+version = "9.5.0"
+dependencies = ["vtk==9.5.0"]
