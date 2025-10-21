@@ -87,8 +87,6 @@ if(NOT DEFINED ${proj}_DIR AND NOT Slicer_USE_SYSTEM_${proj})
       ${${proj}_DEPENDENCIES}
     )
 
-  ExternalProject_GenerateProjectDescription_Step(${proj})
-
   set(${proj}_DIR "${EP_INSTALL_DIR}/lib/cmake/RapidJSON/")
 
 else()

@@ -24,7 +24,7 @@ Copyright (c) Laboratory for Percutaneous Surgery (PerkLab)
 #define __vtkSegmentEditorLogic_h
 
 // Module export include
-#include "vtkSlicerSegmentationsModuleLogicExport.h"
+#include "vtkSlicerSegmentationsModuleLogicModule.h"
 
 // MRML includes
 class vtkMRMLAbstractViewNode;

@@ -18,7 +18,7 @@
 #ifndef __vtkMRMLMarkupsJsonElement_h
 #define __vtkMRMLMarkupsJsonElement_h
 
-#include "vtkSlicerMarkupsModuleMRMLExport.h"
+#include "vtkSlicerMarkupsModuleMRMLModule.h"
 #include "vtkMRMLJsonElement.h"
 
 /// \brief Represents a json object or list.

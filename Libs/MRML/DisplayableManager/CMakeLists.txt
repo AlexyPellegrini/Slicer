@@ -37,7 +37,6 @@ set(classes
   vtkMRMLAbstractDisplayableManager
   vtkMRMLDisplayableManagerGroup
   vtkMRMLDisplayableManagerFactory
-  vtkMRMLInteractionEventData
 
   # ThreeDView factory and DisplayableManager
   vtkMRMLAbstractThreeDViewDisplayableManager

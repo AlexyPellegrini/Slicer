@@ -2259,7 +2259,7 @@ void vtkMRMLMarkupsNode::UnsetNthControlPointPosition(int n)
 }
 
 //---------------------------------------------------------------------------
-void vtkMRMLMarkupsNode::SetControlPointPositionMissing(int n)
+void vtkMRMLMarkupsNode::SetNthControlPointPositionMissing(int n)
 {
   ControlPoint* controlPoint = this->GetNthControlPointCustomLog(n, "MissingNthControlPointPosition");
   if (!controlPoint)

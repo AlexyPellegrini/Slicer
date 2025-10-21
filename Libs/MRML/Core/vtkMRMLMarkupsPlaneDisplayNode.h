@@ -26,6 +26,7 @@
 #define __vtkMRMLMarkupsPlaneDisplayNode_h
 
 // MRML includes
+#include "vtkMRMLMarkupsDisplayNode.h"
 #include "vtkMRML.h"
 class VTK_MRML_EXPORT vtkMRMLMarkupsPlaneDisplayNode : public vtkMRMLMarkupsDisplayNode
 {

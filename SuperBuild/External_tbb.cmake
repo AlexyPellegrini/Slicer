@@ -152,12 +152,6 @@ if((NOT DEFINED TBB_DIR
   set(TBB_LIB_DIR "${TBB_INSTALL_DIR}/${tbb_libdir}")
 
   #-----------------------------------------------------------------------------
-  ExternalProject_GenerateProjectDescription_Step(${proj}
-    VERSION ${tbb_ver}
-    LICENSE_FILES "https://raw.githubusercontent.com/oneapi-src/oneTBB/v${tbb_ver}/LICENSE.txt"
-    )
-
-  #-----------------------------------------------------------------------------
   # Launcher setting specific to build tree
 
   set(${proj}_LIBRARY_PATHS_LAUNCHER_BUILD "${TBB_BIN_DIR}")

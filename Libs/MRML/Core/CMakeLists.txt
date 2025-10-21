@@ -63,6 +63,11 @@ include(${ITK_USE_FILE})
 find_package(LibArchive REQUIRED MODULE)
 
 #
+# RapidJSON
+#
+find_package(RapidJSON REQUIRED CONFIG)
+
+#
 # vtkAddon
 #
 find_package(vtkAddon REQUIRED)
