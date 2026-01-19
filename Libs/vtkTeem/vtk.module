@@ -11,6 +11,5 @@ DEPENDS
   VTK::FiltersModeling
   VTK::IOCore
   VTK::IOImage
-  VTK::ITKFactoryRegistration
 DESCRIPTION
   "vtkTeem"

@@ -6,7 +6,6 @@ DEPENDS
   # Base modules
   VTK::SlicerBaseLogic
   # Libs modules
-  VTK::ITKFactoryRegistration
   VTK::RemoteIO
   VTK::ITK
   VTK::SegmentationCore

@@ -6,7 +6,6 @@ IMPLEMENTABLE
 DEPENDS
   VTK::MRMLLogic
   VTK::RenderingAnnotation
-  VTK::ITKFactoryRegistration
 TEST_DEPENDS
   VTK::TestingCore
   VTK::TestingRendering

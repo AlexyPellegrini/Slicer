@@ -51,6 +51,9 @@ set(${PROJECT_NAME}_ITK_COMPONENTS
   ITKIONRRD
   ITKIOSpatialObjects
   ITKIOTransformBase
+  ITKIOTransformHDF5
+  ITKIOTransformInsightLegacy
+  ITKIOTransformMatlab
   ITKMesh
   ITKTransform
   )

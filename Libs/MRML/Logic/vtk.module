@@ -7,7 +7,6 @@ DEPENDS
   VTK::MRMLCore
   VTK::Teem
   VTK::RemoteIO
-  VTK::ITKFactoryRegistration
 TEST_DEPENDS
   VTK::TestingCore
   VTK::TestingRendering

@@ -8,7 +8,6 @@
 # Base modules
 add_library(SlicerBaseLogic ALIAS VTK::SlicerBaseLogic)
 # Libs modules
-add_library(ITKFactoryRegistration ALIAS VTK::ITKFactoryRegistration)
 add_library(RemoteIO ALIAS VTK::RemoteIO)
 add_library(vtkITK ALIAS VTK::ITK)
 add_library(vtkSegmentationCore ALIAS VTK::SegmentationCore)
