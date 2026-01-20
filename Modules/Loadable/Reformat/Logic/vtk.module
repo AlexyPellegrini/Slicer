@@ -1,9 +1,9 @@
 NAME
-  VTK::SlicerReformatModuleLogic
+  Slicer::ReformatModuleLogic
 LIBRARY_NAME
   vtkSlicerReformatModuleLogic
 DEPENDS
-  VTK::MRMLLogic
-  VTK::SlicerBaseLogic
+  Slicer::MRMLLogic
+  Slicer::BaseLogic
 DESCRIPTION
   "vtkSlicerReformatModuleLogic"

@@ -24,7 +24,7 @@
 // MRMLDisplayableManager includes
 #include "vtkMRMLAbstractThreeDViewDisplayableManager.h"
 
-#include "vtkSlicerSegmentationsModuleMRMLDisplayableManagerModule.h"
+#include "vtkSlicerSegmentationsModuleMRMLDisplayableManagerExport.h"
 
 /// \brief Display segmentations in 3D views
 ///

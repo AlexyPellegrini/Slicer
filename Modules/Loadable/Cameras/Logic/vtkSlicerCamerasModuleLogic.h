@@ -24,7 +24,7 @@
 #define __vtkSlicerCamerasModuleLogic_h
 
 // Slicer includes
-#include "vtkSlicerCamerasModuleLogicModule.h"
+#include "vtkSlicerCamerasModuleLogicExport.h"
 #include "vtkSlicerModuleLogic.h"
 
 // MRML includes

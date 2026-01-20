@@ -34,7 +34,7 @@
 // STD includes
 #include <cstdlib>
 
-#include "vtkSlicerReformatModuleLogicModule.h"
+#include "vtkSlicerReformatModuleLogicExport.h"
 
 class VTK_SLICER_REFORMAT_MODULE_LOGIC_EXPORT vtkSlicerReformatLogic : public vtkSlicerModuleLogic
 {

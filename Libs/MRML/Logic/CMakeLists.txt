@@ -7,7 +7,7 @@
 #
 set(${PROJECT_NAME}_ITK_COMPONENTS
   ITKCommon
-  )
+)
 find_package(ITK 4.6 COMPONENTS ${${PROJECT_NAME}_ITK_COMPONENTS} REQUIRED)
 include(${ITK_USE_FILE})
 
@@ -18,7 +18,12 @@ set(configure_header_file vtkMRMLLogicConfigure.h)
 configure_file(
   ${CMAKE_CURRENT_SOURCE_DIR}/${configure_header_file}.in
   ${CMAKE_CURRENT_BINARY_DIR}/${configure_header_file}
-  )
+)
+
+slicercore_generate_module_wrapper(
+  HEADER_NAME "vtkMRMLLogicModule.h"
+  OUTPUT_VAR wrapper_header_file
+)
 
 set(classes
   vtkMRMLAbstractLogic
@@ -35,15 +40,18 @@ set(classes
   # slicer's vtk extensions (filters)
   vtkImageLabelOutline
   vtkImageNeighborhoodFilter
-  )
+)
 
-set(headers ${CMAKE_CURRENT_BINARY_DIR}/${configure_header_file})
+set(headers
+  ${CMAKE_CURRENT_BINARY_DIR}/${configure_header_file}
+  ${wrapper_header_file}
+)
 
-vtk_module_add_module(VTK::MRMLLogic
+vtk_module_add_module(Slicer::MRMLLogic
   EXPORT_MACRO_PREFIX VTK_MRML_LOGIC
   CLASSES ${classes}
   HEADERS ${headers}
 )
 
-vtk_module_link(VTK::MRMLLogic PUBLIC ${ITK_LIBRARIES})
-vtk_module_include(VTK::MRMLLogic PUBLIC ${ITK_INCLUDE_DIRS})
+vtk_module_link(Slicer::MRMLLogic PUBLIC ${ITK_LIBRARIES})
+vtk_module_include(Slicer::MRMLLogic PUBLIC ${ITK_INCLUDE_DIRS})

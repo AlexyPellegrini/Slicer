@@ -1,10 +1,10 @@
 NAME
-  VTK::SlicerSceneViewsModuleLogic
+  Slicer::SceneViewsModuleLogic
 LIBRARY_NAME
   vtkSlicerSceneViewsModuleLogic
 DEPENDS
-  VTK::MRMLLogic
-  VTK::SlicerBaseLogic
-  VTK::SlicerSequencesModuleLogic
+  Slicer::MRMLLogic
+  Slicer::BaseLogic
+  Slicer::SequencesModuleLogic
 DESCRIPTION
   "vtkSlicerSceneViewsModuleLogic"

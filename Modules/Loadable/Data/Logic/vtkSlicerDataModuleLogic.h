@@ -30,7 +30,7 @@
 // STD includes
 #include <cstdlib>
 
-#include "vtkSlicerDataModuleLogicModule.h"
+#include "vtkSlicerDataModuleLogicExport.h"
 
 class VTK_SLICER_DATA_MODULE_LOGIC_EXPORT vtkSlicerDataModuleLogic : public vtkSlicerModuleLogic
 {

@@ -26,7 +26,7 @@
 // MRML includes
 #include "vtkCodedEntry.h"
 
-#include "vtkSlicerTerminologiesModuleLogicModule.h"
+#include "vtkSlicerTerminologiesModuleLogicExport.h"
 
 /// \brief Terminology property category object
 ///

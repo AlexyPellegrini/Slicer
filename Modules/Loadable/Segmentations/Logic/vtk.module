@@ -1,11 +1,11 @@
 NAME
-  VTK::SlicerSegmentationsModuleLogic
+  Slicer::SegmentationsModuleLogic
 LIBRARY_NAME
   vtkSlicerSegmentationsModuleLogic
 DEPENDS
-  VTK::SlicerSegmentationsModuleMRML
-  VTK::SlicerTerminologiesModuleLogic
-  VTK::SlicerMarkupsModuleMRML
-  VTK::SlicerBaseLogic
+  Slicer::SegmentationsModuleMRML
+  Slicer::TerminologiesModuleLogic
+  Slicer::MarkupsModuleMRML
+  Slicer::BaseLogic
 DESCRIPTION
   "vtkSlicerSegmentationsModuleLogic"

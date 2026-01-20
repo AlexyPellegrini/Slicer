@@ -13,7 +13,7 @@
 #include "vtkMRMLModelDisplayNode.h"
 #include "vtkMRMLDisplayableNode.h"
 #include "vtkMRMLDisplayNode.h"
-#include "vtkSlicerAnnotationsModuleMRMLModule.h"
+#include "vtkSlicerAnnotationsModuleMRMLExport.h"
 
 #define vtkSetAndPropagateVector3Macro(name, type)                                                                                                 \
   virtual void SetAndPropagateSuper##name(type _arg1, type _arg2, type _arg3)                                                                      \

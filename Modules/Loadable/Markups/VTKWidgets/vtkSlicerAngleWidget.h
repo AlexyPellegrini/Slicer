@@ -27,7 +27,7 @@
 #ifndef vtkSlicerAngleWidget_h
 #define vtkSlicerAngleWidget_h
 
-#include "vtkSlicerMarkupsModuleVTKWidgetsModule.h"
+#include "vtkSlicerMarkupsModuleVTKWidgetsExport.h"
 #include "vtkSlicerMarkupsWidget.h"
 
 class vtkSlicerMarkupsWidgetRepresentation;

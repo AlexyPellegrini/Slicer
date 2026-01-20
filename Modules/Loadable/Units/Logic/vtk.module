@@ -1,9 +1,9 @@
 NAME
-  VTK::SlicerUnitsModuleLogic
+  Slicer::UnitsModuleLogic
 LIBRARY_NAME
   vtkSlicerUnitsModuleLogic
 DEPENDS
-  VTK::MRMLLogic
-  VTK::SlicerBaseLogic
+  Slicer::MRMLLogic
+  Slicer::BaseLogic
 DESCRIPTION
   "vtkSlicerUnitsModuleLogic"

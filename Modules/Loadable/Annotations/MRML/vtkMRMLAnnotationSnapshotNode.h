@@ -6,7 +6,7 @@
 #ifndef __vtkMRMLAnnotationSnapshotNode_h
 #define __vtkMRMLAnnotationSnapshotNode_h
 
-#include "vtkSlicerAnnotationsModuleMRMLModule.h"
+#include "vtkSlicerAnnotationsModuleMRMLExport.h"
 #include "vtkMRMLAnnotationControlPointsNode.h"
 #include "vtkMRMLAnnotationNode.h"
 

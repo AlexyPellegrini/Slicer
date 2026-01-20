@@ -35,7 +35,7 @@
 #include <list>
 #include <string>
 
-#include "vtkSlicerVolumesModuleLogicModule.h"
+#include "vtkSlicerVolumesModuleLogicExport.h"
 
 class vtkMRMLLabelMapVolumeNode;
 class vtkMRMLScalarVolumeNode;

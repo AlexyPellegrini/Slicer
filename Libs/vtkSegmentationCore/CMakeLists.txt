@@ -15,7 +15,12 @@ set(configure_header_file vtkSegmentationCoreConfigure.h)
 configure_file(
   ${CMAKE_CURRENT_SOURCE_DIR}/${configure_header_file}.in
   ${CMAKE_CURRENT_BINARY_DIR}/${configure_header_file}
-  )
+)
+
+slicercore_generate_module_wrapper(
+  HEADER_NAME "vtkSegmentationCoreModule.h"
+  OUTPUT_VAR wrapper_header_file
+)
 
 set(classes
   vtkOrientedImageData
@@ -36,21 +41,24 @@ set(classes
   vtkClosedSurfaceToFractionalLabelmapConversionRule
   vtkFractionalLabelmapToClosedSurfaceConversionRule
   vtkPolyDataToFractionalLabelmapFilter
-  )
+)
 
-set(headers ${CMAKE_CURRENT_BINARY_DIR}/${configure_header_file})
+set(headers
+  ${CMAKE_CURRENT_BINARY_DIR}/${configure_header_file}
+  ${wrapper_header_file}
+)
 
-vtk_module_add_module(VTK::SegmentationCore
+vtk_module_add_module(Slicer::SegmentationCore
   EXPORT_MACRO_PREFIX vtkSegmentationCore
   CLASSES ${classes}
   HEADERS ${headers}
 )
 
-vtk_module_link(VTK::SegmentationCore PUBLIC vtkAddon)
-vtk_module_include(VTK::SegmentationCore PUBLIC ${vtkAddon_INCLUDE_DIRS})
+vtk_module_link(Slicer::SegmentationCore PUBLIC vtkAddon)
+vtk_module_include(Slicer::SegmentationCore PUBLIC ${vtkAddon_INCLUDE_DIRS})
 
 if (vtkSegmentationCore_USE_UUID)
   # In order to use UUIDs for segment IDs, we need to link against the gdcmMSFF library
   # for gdcm::UIDGenerator.
-  vtk_module_link(VTK::SegmentationCore PUBLIC gdcmMSFF)
+  vtk_module_link(Slicer::SegmentationCore PUBLIC gdcmMSFF)
 endif()

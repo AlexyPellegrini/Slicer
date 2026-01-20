@@ -1,11 +1,11 @@
 NAME
-  VTK::SlicerSegmentationsModuleMRML
+  Slicer::SegmentationsModuleMRML
 LIBRARY_NAME
   vtkSlicerSegmentationsModuleMRML
 DEPENDS
-  VTK::MRMLCore
-  VTK::Teem
-  VTK::SegmentationCore
-  VTK::SlicerSubjectHierarchyModuleLogic
+  Slicer::MRMLCore
+  Slicer::Teem
+  Slicer::SegmentationCore
+  Slicer::SubjectHierarchyModuleLogic
 DESCRIPTION
   "vtkSlicerSegmentationsModuleMRML"

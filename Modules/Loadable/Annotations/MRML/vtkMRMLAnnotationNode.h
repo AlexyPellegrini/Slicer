@@ -15,7 +15,7 @@ class vtkMRMLCameraNode;
 class vtkMRMLSliceNode;
 
 // Annotations includes
-#include "vtkSlicerAnnotationsModuleMRMLModule.h"
+#include "vtkSlicerAnnotationsModuleMRMLExport.h"
 class vtkMRMLAnnotationTextDisplayNode;
 
 // VTK includes

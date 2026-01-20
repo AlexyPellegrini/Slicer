@@ -6,7 +6,7 @@
 #ifndef __vtkMRMLAnnotationHierarchyNode_h
 #define __vtkMRMLAnnotationHierarchyNode_h
 
-#include "vtkSlicerAnnotationsModuleMRMLModule.h"
+#include "vtkSlicerAnnotationsModuleMRMLExport.h"
 #include "vtkMRMLDisplayableHierarchyNode.h"
 
 class vtkAbstractTransform;

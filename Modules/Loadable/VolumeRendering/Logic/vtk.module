@@ -1,9 +1,9 @@
 NAME
-  VTK::SlicerVolumeRenderingModuleLogic
+  Slicer::VolumeRenderingModuleLogic
 LIBRARY_NAME
   vtkSlicerVolumeRenderingModuleLogic
 DEPENDS
-  VTK::SlicerVolumeRenderingModuleMRML
-  VTK::SlicerBaseLogic
+  Slicer::VolumeRenderingModuleMRML
+  Slicer::BaseLogic
 DESCRIPTION
   "vtkSlicerVolumeRenderingModuleLogic"

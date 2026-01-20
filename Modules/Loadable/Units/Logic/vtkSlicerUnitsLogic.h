@@ -27,7 +27,7 @@
 // MRML includes
 class vtkMRMLUnitNode;
 
-#include "vtkSlicerUnitsModuleLogicModule.h"
+#include "vtkSlicerUnitsModuleLogicExport.h"
 
 // STD includes
 #include <map>

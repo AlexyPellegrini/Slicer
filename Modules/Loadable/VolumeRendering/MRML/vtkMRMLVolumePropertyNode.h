@@ -7,7 +7,7 @@
 #define __vtkMRMLVolumePropertyNode_h
 
 // VolumeRendering includes
-#include "vtkSlicerVolumeRenderingModuleMRMLModule.h"
+#include "vtkSlicerVolumeRenderingModuleMRMLExport.h"
 
 // MRML includes
 #include "vtkMRMLStorableNode.h"

@@ -24,7 +24,7 @@
 // MRMLDisplayableManager includes
 #include "vtkMRMLAbstractSliceViewDisplayableManager.h"
 
-#include "vtkSlicerSegmentationsModuleMRMLDisplayableManagerModule.h"
+#include "vtkSlicerSegmentationsModuleMRMLDisplayableManagerExport.h"
 
 class vtkMRMLSegmentationDisplayNode;
 class vtkStringArray;

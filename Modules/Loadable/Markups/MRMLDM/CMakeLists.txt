@@ -12,12 +12,18 @@ vtk_object_factory_configure(
 
 list(APPEND classes vtkMRMLMarkupsDisplayableManagerHelper)
 
-vtk_module_add_module(VTK::SlicerMarkupsModuleMRMLDisplayableManager
+slicercore_generate_module_wrapper(
+  HEADER_NAME "vtkSlicerMarkupsModuleMRMLDisplayableManagerExport.h"
+  OUTPUT_VAR wrapper_header_file
+)
+
+vtk_module_add_module(Slicer::MarkupsModuleMRMLDisplayableManager
   EXPORT_MACRO_PREFIX VTK_SLICER_MARKUPS_MODULE_MRMLDISPLAYABLEMANAGER
   CLASSES ${classes}
   SOURCES ${vtk_object_factory_source}
+  HEADERS ${wrapper_header_file}
   PRIVATE_HEADERS ${vtk_object_factory_header}
 )
 
-vtk_module_definitions(VTK::SlicerMarkupsModuleMRMLDisplayableManager PRIVATE
-  "vtkSlicerMarkupsModuleMRMLDisplayableManager_AUTOINIT=1(vtkSlicerMarkupsModuleMRMLDisplayableManager)")
+vtk_module_definitions(Slicer::MarkupsModuleMRMLDisplayableManager PRIVATE
+  "SlicerMarkupsModuleMRMLDisplayableManager_AUTOINIT=1(SlicerMarkupsModuleMRMLDisplayableManager)")

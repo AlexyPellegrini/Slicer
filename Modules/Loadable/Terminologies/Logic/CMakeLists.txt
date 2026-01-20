@@ -9,9 +9,15 @@ set(classes
   vtkSlicerTerminologyEntry
   )
 
-vtk_module_add_module(VTK::SlicerTerminologiesModuleLogic
-  EXPORT_MACRO_PREFIX VTK_SLICER_TERMINOLOGIES_LOGIC
-  CLASSES ${classes}
+slicercore_generate_module_wrapper(
+  HEADER_NAME "vtkSlicerTerminologiesModuleLogicExport.h"
+  OUTPUT_VAR wrapper_header_file
 )
 
-vtk_module_link(VTK::SlicerTerminologiesModuleLogic PUBLIC RapidJSON)
+vtk_module_add_module(Slicer::TerminologiesModuleLogic
+  EXPORT_MACRO_PREFIX VTK_SLICER_TERMINOLOGIES_LOGIC
+  CLASSES ${classes}
+  HEADERS ${wrapper_header_file}
+)
+
+vtk_module_link(Slicer::TerminologiesModuleLogic PUBLIC RapidJSON)

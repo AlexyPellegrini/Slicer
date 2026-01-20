@@ -18,7 +18,7 @@
 #include "vtkMRML.h"
 #include "vtkMRMLScene.h"
 #include "vtkMRMLNode.h"
-#include "vtkSlicerCropVolumeModuleMRMLModule.h"
+#include "vtkSlicerCropVolumeModuleMRMLExport.h"
 
 class vtkMRMLDisplayableNode;
 class vtkMRMLTransformNode;

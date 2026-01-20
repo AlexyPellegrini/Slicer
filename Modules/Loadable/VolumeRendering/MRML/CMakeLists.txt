@@ -13,10 +13,16 @@ set(classes
   vtkMRMLVolumeRenderingDisplayNode
 )
 
-vtk_module_add_module(VTK::SlicerVolumeRenderingModuleMRML
-  EXPORT_MACRO_PREFIX VTK_SLICER_VOLUMERENDERING_MODULE_MRML
-  CLASSES ${classes}
+slicercore_generate_module_wrapper(
+  HEADER_NAME "vtkSlicerVolumeRenderingModuleMRMLExport.h"
+  OUTPUT_VAR wrapper_header_file
 )
 
-vtk_module_include(VTK::SlicerVolumeRenderingModuleMRML PUBLIC ${JsonCpp_INCLUDE_DIRS})
-vtk_module_link(VTK::SlicerVolumeRenderingModuleMRML PUBLIC ${JsonCpp_LIBRARY})
+vtk_module_add_module(Slicer::VolumeRenderingModuleMRML
+  EXPORT_MACRO_PREFIX VTK_SLICER_VOLUMERENDERING_MODULE_MRML
+  CLASSES ${classes}
+  HEADERS ${wrapper_header_file}
+)
+
+vtk_module_include(Slicer::VolumeRenderingModuleMRML PUBLIC ${JsonCpp_INCLUDE_DIRS})
+vtk_module_link(Slicer::VolumeRenderingModuleMRML PUBLIC ${JsonCpp_LIBRARY})

@@ -1,5 +1,5 @@
 NAME
-  VTK::SegmentationCore
+  Slicer::SegmentationCore
 LIBRARY_NAME
   vtkSegmentationCore
 DEPENDS

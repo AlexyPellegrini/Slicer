@@ -29,7 +29,7 @@
 #ifndef vtkSlicerROIWidget_h
 #define vtkSlicerROIWidget_h
 
-#include "vtkSlicerMarkupsModuleVTKWidgetsModule.h"
+#include "vtkSlicerMarkupsModuleVTKWidgetsExport.h"
 #include "vtkSlicerMarkupsWidget.h"
 
 class VTK_SLICER_MARKUPS_MODULE_VTKWIDGETS_EXPORT vtkSlicerROIWidget : public vtkSlicerMarkupsWidget

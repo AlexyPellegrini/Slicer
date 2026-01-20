@@ -41,6 +41,11 @@ configure_file(
   ${CMAKE_CURRENT_BINARY_DIR}/${configure_header_file}
   )
 
+slicercore_generate_module_wrapper(
+  HEADER_NAME "vtkTeemModule.h"
+  OUTPUT_VAR wrapper_header_file
+)
+
 # --------------------------------------------------------------------------
 # Sources
 # --------------------------------------------------------------------------
@@ -52,13 +57,16 @@ set(classes
   vtkImageLabelCombine
   )
 
-set(headers ${CMAKE_CURRENT_BINARY_DIR}/${configure_header_file})
+set(headers
+  ${CMAKE_CURRENT_BINARY_DIR}/${configure_header_file}
+  ${wrapper_header_file}
+)
 
-vtk_module_add_module(VTK::Teem
+vtk_module_add_module(Slicer::Teem
   EXPORT_MACRO_PREFIX VTK_Teem
   CLASSES ${classes}
   HEADERS ${headers}
 )
 
-vtk_module_link(VTK::Teem PUBLIC ${ITK_LIBRARIES} ${Teem_LIBRARIES} vtkAddon)
-vtk_module_include(VTK::Teem PUBLIC ${Teem_INCLUDE_DIRS} ${vtkAddon_INCLUDE_DIRS})
+vtk_module_link(Slicer::Teem PUBLIC ${ITK_LIBRARIES} ${Teem_LIBRARIES} vtkAddon)
+vtk_module_include(Slicer::Teem PUBLIC ${Teem_INCLUDE_DIRS} ${vtkAddon_INCLUDE_DIRS})

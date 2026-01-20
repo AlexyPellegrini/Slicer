@@ -1,7 +1,7 @@
 NAME
-  VTK::MRMLCore
+  Slicer::MRMLCore
 LIBRARY_NAME
-  vtkMRMLCore
+  MRMLCore
 DEPENDS
   VTK::CommonCore
   VTK::CommonDataModel
@@ -14,11 +14,11 @@ DEPENDS
   VTK::IOSQL
   VTK::RenderingOpenGL2
   VTK::RenderingVolumeOpenGL2
-  VTK::Teem
-  VTK::ITK
-  VTK::SegmentationCore
+  Slicer::Teem
+  Slicer::ITK
+  Slicer::SegmentationCore
 TEST_DEPENDS
   VTK::TestingCore
   VTK::TestingRendering
 DESCRIPTION
-  "vtkMRMLCore"
+  "MRMLCore"

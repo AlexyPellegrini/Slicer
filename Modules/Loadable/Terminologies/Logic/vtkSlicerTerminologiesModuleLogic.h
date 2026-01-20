@@ -26,7 +26,7 @@
 // Slicer includes
 #include "vtkSlicerModuleLogic.h"
 
-#include "vtkSlicerTerminologiesModuleLogicModule.h"
+#include "vtkSlicerTerminologiesModuleLogicExport.h"
 
 class vtkCodedEntry;
 class vtkMRMLColorNode;

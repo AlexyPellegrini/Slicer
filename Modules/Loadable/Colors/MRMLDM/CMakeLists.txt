@@ -10,12 +10,18 @@ vtk_object_factory_configure(
   HEADER_FILE vtk_object_factory_header
   EXPORT_MACRO "")
 
-vtk_module_add_module(VTK::SlicerColorsModuleMRMLDisplayableManager
+slicercore_generate_module_wrapper(
+  HEADER_NAME "vtkSlicerColorsModuleMRMLDisplayableManagerExport.h"
+  OUTPUT_VAR wrapper_header_file
+)
+
+vtk_module_add_module(Slicer::ColorsModuleMRMLDisplayableManager
   EXPORT_MACRO_PREFIX VTK_SLICER_COLORS_MODULE_MRMLDISPLAYABLEMANAGER
   CLASSES ${classes}
   SOURCES ${vtk_object_factory_source}
+  HEADERS ${wrapper_header_file}
   PRIVATE_HEADERS ${vtk_object_factory_header}
 )
 
-vtk_module_definitions(VTK::SlicerColorsModuleMRMLDisplayableManager PRIVATE
-  "vtkSlicerColorsModuleMRMLDisplayableManager_AUTOINIT=1(vtkSlicerColorsModuleMRMLDisplayableManager)")
+vtk_module_definitions(Slicer::ColorsModuleMRMLDisplayableManager PRIVATE
+  "SlicerColorsModuleMRMLDisplayableManager_AUTOINIT=1(SlicerColorsModuleMRMLDisplayableManager)")

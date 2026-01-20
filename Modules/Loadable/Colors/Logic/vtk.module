@@ -1,10 +1,10 @@
 NAME
-  VTK::SlicerColorsModuleLogic
+  Slicer::ColorsModuleLogic
 LIBRARY_NAME
   vtkSlicerColorsModuleLogic
 DEPENDS
-  VTK::SlicerColorsModuleMRML
-  VTK::SlicerBaseLogic
-  VTK::MRMLLogic
+  Slicer::ColorsModuleMRML
+  Slicer::BaseLogic
+  Slicer::MRMLLogic
 DESCRIPTION
   "vtkSlicerColorsModuleLogic"

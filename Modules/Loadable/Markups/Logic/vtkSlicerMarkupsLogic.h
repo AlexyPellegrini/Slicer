@@ -53,7 +53,7 @@ class vtkPolyData;
 #include <list>
 #include <string>
 
-#include "vtkSlicerMarkupsModuleLogicModule.h"
+#include "vtkSlicerMarkupsModuleLogicExport.h"
 
 class VTK_SLICER_MARKUPS_MODULE_LOGIC_EXPORT vtkSlicerMarkupsLogic : public vtkSlicerModuleLogic
 {

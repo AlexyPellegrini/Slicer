@@ -12,12 +12,18 @@ vtk_object_factory_configure(
   HEADER_FILE vtk_object_factory_header
   EXPORT_MACRO "")
 
-vtk_module_add_module(VTK::SlicerSegmentationsModuleMRMLDisplayableManager
+slicercore_generate_module_wrapper(
+  HEADER_NAME "vtkSlicerSegmentationsModuleMRMLDisplayableManagerExport.h"
+  OUTPUT_VAR wrapper_header_file
+)
+
+vtk_module_add_module(Slicer::SegmentationsModuleMRMLDisplayableManager
   EXPORT_MACRO_PREFIX VTK_SLICER_SEGMENTATIONS_MODULE_MRMLDISPLAYABLEMANAGER
   CLASSES ${classes}
   SOURCES ${vtk_object_factory_source}
+  HEADERS ${wrapper_header_file}
   PRIVATE_HEADERS ${vtk_object_factory_header}
 )
 
-vtk_module_definitions(VTK::SlicerSegmentationsModuleMRMLDisplayableManager PRIVATE
-  "vtkSlicerSegmentationsModuleMRMLDisplayableManager_AUTOINIT=1(vtkSlicerSegmentationsModuleMRMLDisplayableManager)")
+vtk_module_definitions(Slicer::SegmentationsModuleMRMLDisplayableManager PRIVATE
+  "SlicerSegmentationsModuleMRMLDisplayableManager_AUTOINIT=1(SlicerSegmentationsModuleMRMLDisplayableManager)")

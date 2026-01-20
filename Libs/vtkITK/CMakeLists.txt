@@ -61,6 +61,12 @@ configure_file(
   ${CMAKE_CURRENT_BINARY_DIR}/${configure_header_file}
   )
 
+slicercore_generate_module_wrapper(
+  HEADER_NAME "vtkITKModule.h"
+  OUTPUT_VAR wrapper_header_file
+)
+
+
 set(classes
   vtkITKArchetypeDiffusionTensorImageReaderFile
   vtkITKArchetypeImageSeriesReader
@@ -70,7 +76,7 @@ set(classes
   vtkITKImageThresholdCalculator
   vtkITKImageWriter
   vtkITKGradientAnisotropicDiffusionImageFilter
-  vtkITKGrowCut
+  #vtkITKGrowCut # Currently excluded due to being a 50Mio large object that takes 10 minutes to build
   vtkITKDistanceTransform
   vtkITKLabelShapeStatistics
   vtkITKLevelTracingImageFilter
@@ -98,9 +104,10 @@ set(sources
 set(headers
   vtkITKNumericTraits.h
   ${CMAKE_CURRENT_BINARY_DIR}/${configure_header_file}
+  ${wrapper_header_file}
 )
 
-vtk_module_add_module(VTK::ITK
+vtk_module_add_module(Slicer::ITK
   EXPORT_MACRO_PREFIX VTK_ITK
   CLASSES ${classes}
   SOURCES ${sources}
@@ -112,5 +119,5 @@ set_source_files_properties(
   WRAP_EXCLUDE
 )
 
-vtk_module_link(VTK::ITK PUBLIC ${ITK_LIBRARIES} vtkAddon)
-vtk_module_include(VTK::ITK PUBLIC ${ITK_INCLUDE_DIRS} ${vtkAddon_INCLUDE_DIRS})
+vtk_module_link(Slicer::ITK PUBLIC ${ITK_LIBRARIES} vtkAddon)
+vtk_module_include(Slicer::ITK PUBLIC ${ITK_INCLUDE_DIRS} ${vtkAddon_INCLUDE_DIRS})

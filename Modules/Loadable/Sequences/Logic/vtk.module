@@ -1,10 +1,10 @@
 NAME
-  VTK::SlicerSequencesModuleLogic
+  Slicer::SequencesModuleLogic
 LIBRARY_NAME
   vtkSlicerSequencesModuleLogic
 DEPENDS
-  VTK::SlicerSequencesModuleMRML
-  VTK::SlicerMarkupsModuleMRML
-  VTK::SlicerBaseLogic
+  Slicer::SequencesModuleMRML
+  Slicer::MarkupsModuleMRML
+  Slicer::BaseLogic
 DESCRIPTION
   "vtkSlicerSequencesModuleLogic"

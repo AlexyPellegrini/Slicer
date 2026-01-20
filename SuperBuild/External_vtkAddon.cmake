@@ -28,14 +28,6 @@ if(NOT DEFINED vtkAddon_DIR AND NOT Slicer_USE_SYSTEM_${proj})
   set(EXTERNAL_PROJECT_OPTIONAL_CMAKE_CACHE_ARGS)
 
   if(SLICERLIB_PYTHON_BUILD)
-    # when building slicerlib with scikit-build-core, VTK is provided by vtk-sdk wheel!
-    # vtk is found using CMAKE_PREFIX_PATH
-    # We need to normalize paths because both CMake on Windows gives us paths
-    # with backslashes and external project generated cache contains set("some\path") which
-    # is badly interpreted...
-    cmake_path(CONVERT ${Python3_EXECUTABLE} TO_CMAKE_PATH_LIST Python3_EXECUTABLE NORMALIZE)
-    cmake_path(CONVERT ${Python3_LIBRARIES} TO_CMAKE_PATH_LIST Python3_LIBRARIES NORMALIZE)
-    cmake_path(CONVERT ${Python3_INCLUDE_DIR} TO_CMAKE_PATH_LIST Python3_INCLUDE_DIR NORMALIZE)
     list(APPEND EXTERNAL_PROJECT_OPTIONAL_CMAKE_CACHE_ARGS
       "-DCMAKE_PREFIX_PATH:PATH=${CMAKE_PREFIX_PATH}"
       "-DvtkAddon_WRAP_PYTHON:BOOL=ON"

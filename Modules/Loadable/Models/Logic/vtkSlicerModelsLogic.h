@@ -17,7 +17,7 @@
 
 // Slicer includes
 #include "vtkSlicerModuleLogic.h"
-#include "vtkSlicerModelsModuleLogicModule.h"
+#include "vtkSlicerModelsModuleLogicExport.h"
 
 // MRML includes
 #include "vtkMRMLStorageNode.h"

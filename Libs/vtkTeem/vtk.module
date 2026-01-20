@@ -1,5 +1,5 @@
 NAME
-  VTK::Teem
+  Slicer::Teem
 LIBRARY_NAME
   vtkTeem
 DEPENDS

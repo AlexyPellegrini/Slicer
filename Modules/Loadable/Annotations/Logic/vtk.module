@@ -1,9 +1,9 @@
 NAME
-  VTK::SlicerAnnotationsModuleLogic
+  Slicer::AnnotationsModuleLogic
 LIBRARY_NAME
   vtkSlicerAnnotationsModuleLogic
 DEPENDS
-  VTK::SlicerAnnotationsModuleMRML
-  VTK::SlicerBaseLogic
+  Slicer::AnnotationsModuleMRML
+  Slicer::BaseLogic
 DESCRIPTION
   "vtkSlicerAnnotationsModuleLogic"

@@ -1,12 +1,12 @@
 NAME
-  VTK::MRMLLogic
+  Slicer::MRMLLogic
 LIBRARY_NAME
-  vtkMRMLLogic
+  MRMLLogic
 DEPENDS
+  Slicer::MRMLCore
   VTK::ImagingGeneral
-  VTK::MRMLCore
-  VTK::Teem
-  VTK::RemoteIO
+  Slicer::Teem
+  Slicer::RemoteIO
 TEST_DEPENDS
   VTK::TestingCore
   VTK::TestingRendering

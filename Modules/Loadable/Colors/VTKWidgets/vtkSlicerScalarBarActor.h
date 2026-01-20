@@ -34,7 +34,7 @@
 #include "vtkVersion.h"
 
 // MRMLLogic includes
-#include "vtkSlicerColorsModuleVTKWidgetsModule.h"
+#include "vtkSlicerColorsModuleVTKWidgetsExport.h"
 
 class VTK_SLICER_COLORS_MODULE_VTKWIDGETS_EXPORT vtkSlicerScalarBarActor : public vtkScalarBarActor
 {

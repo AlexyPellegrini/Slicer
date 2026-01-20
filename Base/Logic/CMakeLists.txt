@@ -64,16 +64,16 @@ set(classes
 
 set(headers ${CMAKE_CURRENT_BINARY_DIR}/${configure_header_file})
 
-vtk_module_add_module(VTK::SlicerBaseLogic
+vtk_module_add_module(Slicer::BaseLogic
   EXPORT_MACRO_PREFIX VTK_SLICER_BASE_LOGIC
   CLASSES ${classes}
   HEADERS ${headers}
 )
 
-vtk_module_link(VTK::SlicerBaseLogic PUBLIC
+vtk_module_link(Slicer::BaseLogic PUBLIC
   ${ITK_LIBRARIES} ${LibArchive_LIBRARY} ModuleDescriptionParser vtkAddon
 )
 
-vtk_module_include(VTK::SlicerBaseLogic PUBLIC
+vtk_module_include(Slicer::BaseLogic PUBLIC
   ${ITK_INCLUDE_DIRS} ${LibArchive_INCLUDE_DIRS} ${ModuleDescriptionParser_INCLUDE_DIRS} ${vtkAddon_INCLUDE_DIRS}
 )

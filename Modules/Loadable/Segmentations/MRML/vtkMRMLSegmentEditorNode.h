@@ -28,7 +28,7 @@
 #include <vtkMRMLSegmentationNode.h>
 
 // Segmentations includes
-#include "vtkSlicerSegmentationsModuleMRMLModule.h"
+#include "vtkSlicerSegmentationsModuleMRMLExport.h"
 
 #include "vtkOrientedImageData.h"
 

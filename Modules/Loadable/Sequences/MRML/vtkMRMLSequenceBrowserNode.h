@@ -22,7 +22,7 @@
 #ifndef __vtkMRMLSequenceBrowserNode_h
 #define __vtkMRMLSequenceBrowserNode_h
 
-#include "vtkSlicerSequencesModuleMRMLModule.h"
+#include "vtkSlicerSequencesModuleMRMLExport.h"
 
 // MRML includes
 #include <vtkMRML.h>

@@ -16,12 +16,18 @@ vtk_object_factory_configure(
   HEADER_FILE vtk_object_factory_header
   EXPORT_MACRO "")
 
-vtk_module_add_module(VTK::SlicerTransformsModuleMRMLDisplayableManager
+slicercore_generate_module_wrapper(
+  HEADER_NAME "vtkSlicerTransformsModuleMRMLDisplayableManagerExport.h"
+  OUTPUT_VAR wrapper_header_file
+)
+
+vtk_module_add_module(Slicer::TransformsModuleMRMLDisplayableManager
   EXPORT_MACRO_PREFIX VTK_SLICER_TRANSFORMS_MODULE_MRMLDISPLAYABLEMANAGER
   CLASSES ${classes}
   SOURCES ${vtk_object_factory_source}
+  HEADERS ${wrapper_header_file}
   PRIVATE_HEADERS ${vtk_object_factory_header}
 )
 
-vtk_module_definitions(VTK::SlicerTransformsModuleMRMLDisplayableManager PRIVATE
-  "vtkSlicerTransformsModuleMRMLDisplayableManager_AUTOINIT=1(vtkSlicerTransformsModuleMRMLDisplayableManager)")
+vtk_module_definitions(Slicer::TransformsModuleMRMLDisplayableManager PRIVATE
+  "SlicerTransformsModuleMRMLDisplayableManager_AUTOINIT=1(SlicerTransformsModuleMRMLDisplayableManager)")

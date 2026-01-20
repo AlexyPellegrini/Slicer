@@ -1,9 +1,9 @@
 NAME
-  VTK::SlicerColorsModuleVTKWidgets
+  Slicer::ColorsModuleVTKWidgets
 LIBRARY_NAME
   vtkSlicerColorsModuleVTKWidgets
 DEPENDS
-  VTK::MRMLLogic
+  Slicer::MRMLLogic
   VTK::RenderingAnnotation
 DESCRIPTION
   "vtkSlicerColorsModuleVTKWidgets"

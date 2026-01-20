@@ -58,13 +58,13 @@ target_link_libraries(ITKFactoryRegistrationInternals
   PUBLIC ${ITK_LIBRARIES}
 )
 
-vtk_module_add_module(VTK::ITKFactoryRegistration
+vtk_module_add_module(Slicer::ITKFactoryRegistration
   EXPORT_MACRO_PREFIX ITKFactoryRegistration
   SOURCES itkFactoryRegistration.cxx
   HEADERS itkFactoryRegistration.h
 )
-vtk_module_link(VTK::ITKFactoryRegistration
+vtk_module_link(Slicer::ITKFactoryRegistration
   PUBLIC ${ITK_LIBRARIES}
   PRIVATE ITKFactoryRegistrationInternals
 )
-vtk_module_include(VTK::ITKFactoryRegistration PUBLIC ${ITK_INCLUDE_DIRS})
+vtk_module_include(Slicer::ITKFactoryRegistration PUBLIC ${ITK_INCLUDE_DIRS})

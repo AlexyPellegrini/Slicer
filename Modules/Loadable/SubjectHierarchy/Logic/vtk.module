@@ -1,9 +1,9 @@
 NAME
-  VTK::SlicerSubjectHierarchyModuleLogic
+  Slicer::SubjectHierarchyModuleLogic
 LIBRARY_NAME
   vtkSlicerSubjectHierarchyModuleLogic
 DEPENDS
-  VTK::MRMLCore
-  VTK::SlicerBaseLogic
+  Slicer::MRMLCore
+  Slicer::BaseLogic
 DESCRIPTION
   "vtkSlicerSubjectHierarchyModuleLogic"

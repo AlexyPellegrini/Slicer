@@ -29,7 +29,7 @@
 // MRML includes
 
 // Tables includes
-#include "vtkSlicerTablesModuleLogicModule.h"
+#include "vtkSlicerTablesModuleLogicExport.h"
 
 class vtkAbstractArray;
 class vtkMRMLMessageCollection;

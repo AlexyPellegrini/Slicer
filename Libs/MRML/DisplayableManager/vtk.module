@@ -1,10 +1,10 @@
 NAME
-  VTK::MRMLDisplayableManager
+  Slicer::MRMLDisplayableManager
 LIBRARY_NAME
-  vtkMRMLDisplayableManager
+  MRMLDisplayableManager
 IMPLEMENTABLE
 DEPENDS
-  VTK::MRMLLogic
+  Slicer::MRMLLogic
   VTK::RenderingAnnotation
 TEST_DEPENDS
   VTK::TestingCore

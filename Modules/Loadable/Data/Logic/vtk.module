@@ -1,9 +1,9 @@
 NAME
-  VTK::SlicerDataModuleLogic
+  Slicer::DataModuleLogic
 LIBRARY_NAME
   vtkSlicerDataModuleLogic
 DEPENDS
-  VTK::MRMLLogic
-  VTK::SlicerBaseLogic
+  Slicer::MRMLLogic
+  Slicer::BaseLogic
 DESCRIPTION
   "vtkSlicerDataModuleLogic"

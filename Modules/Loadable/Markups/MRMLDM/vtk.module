@@ -1,12 +1,12 @@
 NAME
-  VTK::SlicerMarkupsModuleMRMLDisplayableManager
+  Slicer::MarkupsModuleMRMLDisplayableManager
 LIBRARY_NAME
   vtkSlicerMarkupsModuleMRMLDisplayableManager
 IMPLEMENTABLE
 DEPENDS
-  VTK::SlicerMarkupsModuleLogic
-  VTK::SlicerMarkupsModuleMRML
-  VTK::SlicerMarkupsModuleVTKWidgets
-  VTK::MRMLDisplayableManager
+  Slicer::MarkupsModuleLogic
+  Slicer::MarkupsModuleMRML
+  Slicer::MarkupsModuleVTKWidgets
+  Slicer::MRMLDisplayableManager
 DESCRIPTION
   "vtkSlicerMarkupsModuleMRMLDisplayableManager"

@@ -1,5 +1,5 @@
 NAME
-  VTK::ITK
+  Slicer::ITK
 LIBRARY_NAME
   vtkITK
 DEPENDS

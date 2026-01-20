@@ -1,6 +1,12 @@
 set(classes vtkSlicerDataModuleLogic)
 
-vtk_module_add_module(VTK::SlicerDataModuleLogic
+slicercore_generate_module_wrapper(
+  HEADER_NAME "vtkSlicerDataModuleLogicExport.h"
+  OUTPUT_VAR wrapper_header_file
+)
+
+vtk_module_add_module(Slicer::DataModuleLogic
   EXPORT_MACRO_PREFIX VTK_SLICER_DATA_MODULE_LOGIC
   CLASSES ${classes}
+  HEADERS ${wrapper_header_file}
 )

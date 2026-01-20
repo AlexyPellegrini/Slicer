@@ -1,11 +1,11 @@
 NAME
-  VTK::SlicerCropVolumeModuleLogic
+  Slicer::CropVolumeModuleLogic
 LIBRARY_NAME
   vtkSlicerCropVolumeModuleLogic
 DEPENDS
-  VTK::SlicerCropVolumeModuleMRML
-  VTK::SlicerMarkupsModuleMRML
-  VTK::SlicerVolumesModuleLogic
-  VTK::SlicerBaseLogic
+  Slicer::CropVolumeModuleMRML
+  Slicer::MarkupsModuleMRML
+  Slicer::VolumesModuleLogic
+  Slicer::BaseLogic
 DESCRIPTION
   "vtkSlicerCropVolumeModuleLogic"

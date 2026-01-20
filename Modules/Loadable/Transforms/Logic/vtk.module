@@ -1,9 +1,9 @@
 NAME
-  VTK::SlicerTransformsModuleLogic
+  Slicer::TransformsModuleLogic
 LIBRARY_NAME
   vtkSlicerTransformsModuleLogic
 DEPENDS
-  VTK::SlicerMarkupsModuleMRML
-  VTK::SlicerBaseLogic
+  Slicer::MarkupsModuleMRML
+  Slicer::BaseLogic
 DESCRIPTION
   "vtkSlicerTransformsModuleLogic"

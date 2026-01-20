@@ -1,11 +1,11 @@
 NAME
-  VTK::SlicerMarkupsModuleVTKWidgets
+  Slicer::MarkupsModuleVTKWidgets
 LIBRARY_NAME
   vtkSlicerMarkupsModuleVTKWidgets
 IMPLEMENTABLE
 DEPENDS
-  VTK::SlicerMarkupsModuleMRML
-  VTK::SlicerBaseLogic
+  Slicer::MarkupsModuleMRML
+  Slicer::BaseLogic
   VTK::RenderingLabel
 DESCRIPTION
   "vtkSlicerMarkupsModuleMRMLVTKWidgets"

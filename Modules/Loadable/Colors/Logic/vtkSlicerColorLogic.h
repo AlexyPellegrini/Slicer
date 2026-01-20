@@ -17,7 +17,7 @@
 
 // MRMLLogic includes
 #include <vtkMRMLColorLogic.h>
-#include "vtkSlicerColorsModuleLogicModule.h"
+#include "vtkSlicerColorsModuleLogicExport.h"
 
 class vtkMRMLColorLegendDisplayNode;
 class vtkMRMLDisplayableNode;

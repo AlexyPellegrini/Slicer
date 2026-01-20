@@ -1,10 +1,10 @@
 NAME
-  VTK::SlicerVolumeRenderingModuleMRMLDisplayableManager
+  Slicer::VolumeRenderingModuleMRMLDisplayableManager
 LIBRARY_NAME
   vtkSlicerVolumeRenderingModuleMRMLDisplayableManager
 IMPLEMENTABLE
 DEPENDS
-  VTK::SlicerVolumeRenderingModuleLogic
+  Slicer::VolumeRenderingModuleLogic
   VTK::RenderingContextOpenGL2
   VTK::RenderingVolumeOpenGL2
 DESCRIPTION

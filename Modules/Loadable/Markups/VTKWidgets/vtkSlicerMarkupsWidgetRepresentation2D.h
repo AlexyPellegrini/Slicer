@@ -30,7 +30,7 @@
 #ifndef vtkSlicerMarkupsWidgetRepresentation2D_h
 #define vtkSlicerMarkupsWidgetRepresentation2D_h
 
-#include "vtkSlicerMarkupsModuleVTKWidgetsModule.h"
+#include "vtkSlicerMarkupsModuleVTKWidgetsExport.h"
 #include "vtkSlicerMarkupsWidgetRepresentation.h"
 
 #include "vtkMRMLSliceNode.h"

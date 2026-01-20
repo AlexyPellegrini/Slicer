@@ -1,5 +1,5 @@
 NAME
-  VTK::RemoteIO
+  Slicer::RemoteIO
 LIBRARY_NAME
   vtkRemoteIO
 DEPENDS

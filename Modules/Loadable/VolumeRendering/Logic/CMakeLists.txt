@@ -1,6 +1,12 @@
 set(classes vtkSlicerVolumeRenderingLogic)
 
-vtk_module_add_module(VTK::SlicerVolumeRenderingModuleLogic
+slicercore_generate_module_wrapper(
+  HEADER_NAME "vtkSlicerVolumeRenderingModuleLogicExport.h"
+  OUTPUT_VAR wrapper_header_file
+)
+
+vtk_module_add_module(Slicer::VolumeRenderingModuleLogic
   EXPORT_MACRO_PREFIX VTK_SLICER_VOLUMERENDERING_MODULE_LOGIC
   CLASSES ${classes}
+  HEADERS ${wrapper_header_file}
 )

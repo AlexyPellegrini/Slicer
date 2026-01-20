@@ -5,7 +5,7 @@
 #ifndef __vtkMRMLAnnotationFiducialsStorageNode_h
 #define __vtkMRMLAnnotationFiducialsStorageNode_h
 
-#include "vtkSlicerAnnotationsModuleMRMLModule.h"
+#include "vtkSlicerAnnotationsModuleMRMLExport.h"
 #include "vtkMRMLAnnotationControlPointsStorageNode.h"
 
 class vtkMRMLAnnotationPointDisplayNode;

@@ -24,7 +24,7 @@
 #define __vtkMRMLMarkupsJsonStorageNode_h
 
 // Markups includes
-#include "vtkSlicerMarkupsModuleMRMLModule.h"
+#include "vtkSlicerMarkupsModuleMRMLExport.h"
 #include "vtkMRMLMarkupsStorageNode.h"
 
 class vtkMRMLJsonElement;

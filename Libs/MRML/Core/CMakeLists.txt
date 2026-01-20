@@ -56,7 +56,7 @@ set(${PROJECT_NAME}_ITK_COMPONENTS
   ITKIOTransformMatlab
   ITKMesh
   ITKTransform
-  )
+)
 find_package(ITK 4.6 COMPONENTS ${${PROJECT_NAME}_ITK_COMPONENTS} REQUIRED)
 include(${ITK_USE_FILE})
 
@@ -83,6 +83,11 @@ configure_file(
   ${CMAKE_CURRENT_SOURCE_DIR}/${configure_header_file}.in
   ${CMAKE_CURRENT_BINARY_DIR}/${configure_header_file}
   )
+
+slicercore_generate_module_wrapper(
+  HEADER_NAME "vtkMRMLCoreModule.h"
+  OUTPUT_VAR wrapper_header_file
+)
 
 # --------------------------------------------------------------------------
 # Sources
@@ -222,7 +227,7 @@ set(classes
   vtkTagTable
   vtkTagTableCollection
   vtkURIHandler
-  )
+)
 
 set(headers
   vtkMRML.h
@@ -230,12 +235,14 @@ set(headers
   vtkMRMLNodePropertyMacros.h
   vtkMRMLTranslator.h
   vtkMRMLSubjectHierarchyConstants.h
-  ${CMAKE_CURRENT_BINARY_DIR}/${configure_header_file})
+  ${CMAKE_CURRENT_BINARY_DIR}/${configure_header_file}
+  ${wrapper_header_file}
+)
 
 set_source_files_properties(
   vtkMRMLCoreTestingUtilities.cxx
   WRAP_EXCLUDE
-  )
+)
 
 # Abstract/pure virtual classes
 
@@ -247,7 +254,7 @@ set_source_files_properties(
   vtkMRMLVolumeDisplayNode.cxx
   vtkMRMLVolumeNode.cxx
   ABSTRACT
-  )
+)
 
 #-----------------------------------------------------------------------------
 # Wrapping hints used by all Tcl, Python and Java wrapping.
@@ -259,11 +266,11 @@ set(VTK_WRAP_HINTS ${CMAKE_CURRENT_SOURCE_DIR}/Wrapping/Tcl/hints)
 # Build library
 # --------------------------------------------------------------------------
 
-vtk_module_add_module(VTK::MRMLCore
+vtk_module_add_module(Slicer::MRMLCore
   EXPORT_MACRO_PREFIX VTK_MRML
   CLASSES ${classes}
   HEADERS ${headers}
 )
 
-vtk_module_link(VTK::MRMLCore PUBLIC RapidJSON ${ITK_LIBRARIES} ${LibArchive_LIBRARY} vtkAddon)
-vtk_module_include(VTK::MRMLCore PUBLIC ${ITK_INCLUDE_DIRS} ${LibArchive_INCLUDE_DIRS} ${vtkAddon_INCLUDE_DIRS})
+vtk_module_link(Slicer::MRMLCore PUBLIC RapidJSON ${ITK_LIBRARIES} ${LibArchive_LIBRARY} vtkAddon)
+vtk_module_include(Slicer::MRMLCore PUBLIC ${ITK_INCLUDE_DIRS} ${LibArchive_INCLUDE_DIRS} ${vtkAddon_INCLUDE_DIRS})

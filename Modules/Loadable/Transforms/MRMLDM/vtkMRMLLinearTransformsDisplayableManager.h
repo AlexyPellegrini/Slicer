@@ -28,7 +28,7 @@
 
 // Transforms MRMLDM includes
 #include "vtkMRMLTransformHandleWidget.h"
-#include "vtkSlicerTransformsModuleMRMLDisplayableManagerModule.h"
+#include "vtkSlicerTransformsModuleMRMLDisplayableManagerExport.h"
 
 // MRML includes
 #include <vtkMRMLTransformDisplayNode.h>

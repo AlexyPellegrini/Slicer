@@ -25,7 +25,7 @@
 
 // MRMLDisplayableManager includes
 #include "vtkMRMLAbstractSliceViewDisplayableManager.h"
-#include "vtkSlicerTransformsModuleMRMLDisplayableManagerModule.h"
+#include "vtkSlicerTransformsModuleMRMLDisplayableManagerExport.h"
 
 /// \brief Displayable manager for showing transforms in slice (2D) views.
 ///

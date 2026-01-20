@@ -28,7 +28,7 @@
 #ifndef vtkMRMLTransformHandleWidget_h
 #define vtkMRMLTransformHandleWidget_h
 
-#include "vtkSlicerTransformsModuleMRMLDisplayableManagerModule.h"
+#include "vtkSlicerTransformsModuleMRMLDisplayableManagerExport.h"
 
 #include "vtkMRMLInteractionWidget.h"
 
