@@ -44,7 +44,7 @@ if((NOT DEFINED TBB_DIR
   #------------------------------------------------------------------------------
   set(EP_SOURCE_DIR ${CMAKE_BINARY_DIR}/${proj})
   set(EP_BINARY_DIR ${CMAKE_BINARY_DIR}/${proj}-build)
-  set(EP_INSTALL_DIR ${CMAKE_BINARY_DIR}/${proj}-install)
+  set(EP_INSTALL_DIR ${EP_DEPENDENCIES_INSTALL_DIR})
 
   ExternalProject_SetIfNotDefined(
     Slicer_${proj}_GIT_REPOSITORY

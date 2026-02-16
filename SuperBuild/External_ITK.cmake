@@ -101,6 +101,7 @@ if(NOT DEFINED ITK_DIR AND NOT Slicer_USE_SYSTEM_${proj})
       -DCMAKE_CXX_STANDARD:STRING=${CMAKE_CXX_STANDARD}
       -DCMAKE_CXX_STANDARD_REQUIRED:BOOL=${CMAKE_CXX_STANDARD_REQUIRED}
       -DCMAKE_CXX_EXTENSIONS:BOOL=${CMAKE_CXX_EXTENSIONS}
+      -DCMAKE_INSTALL_PREFIX:PATH=${EP_DEPENDENCIES_INSTALL_DIR}
       -DITK_CXX_OPTIMIZATION_FLAGS:STRING= # Force compiler-default instruction set to ensure compatibility with older CPUs
       -DITK_C_OPTIMIZATION_FLAGS:STRING=  # Force compiler-default instruction set to ensure compatibility with older CPUs
       -DITK_INSTALL_ARCHIVE_DIR:PATH=${Slicer_INSTALL_LIB_DIR}
@@ -137,14 +138,15 @@ if(NOT DEFINED ITK_DIR AND NOT Slicer_USE_SYSTEM_${proj})
       -DZLIB_INCLUDE_DIR:PATH=${ZLIB_INCLUDE_DIR}
       -DZLIB_LIBRARY:FILEPATH=${ZLIB_LIBRARY}
       ${EXTERNAL_PROJECT_OPTIONAL_CMAKE_CACHE_ARGS}
-    INSTALL_COMMAND ""
     DEPENDS
       ${${proj}_DEPENDENCIES}
     )
 
   ExternalProject_GenerateProjectDescription_Step(${proj})
 
-  set(ITK_DIR ${EP_BINARY_DIR})
+  # Use install dir to have properly defined targets
+  # ITK export in build tree do not exposes the include directories in its targets, install tree does.
+  set(ITK_DIR ${EP_DEPENDENCIES_INSTALL_DIR}/lib/cmake/ITK-5.4)
 
   if(NOT DEFINED ITK_VALGRIND_SUPPRESSIONS_FILE)
     set(ITK_VALGRIND_SUPPRESSIONS_FILE ${EP_SOURCE_DIR}/CMake/InsightValgrind.supp)
