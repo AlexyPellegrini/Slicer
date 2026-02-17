@@ -6,9 +6,8 @@ find_package(Slicer CONFIG REQUIRED)
 
 include(FetchContent)
 FetchContent_Declare(vtk-sdk-python-helper
-  SOURCE_DIR /home/alexy/vtk-mrml/vtk-sdk-helper
-  #GIT_REPOSITORY https://github.com/Kitware/vtk-sdk-python-wheel-helper.git
-  #GIT_TAG        main
+  GIT_REPOSITORY https://github.com/Kitware/vtk-sdk-python-wheel-helper.git
+  GIT_TAG        main
 )
 FetchContent_MakeAvailable(vtk-sdk-python-helper)
 
