@@ -105,11 +105,11 @@ if(BUILD_SDK)
     USE_SOURCE_PERMISSIONS
   )
 
-  if(CMAKE_SYSTEM_NAME MATCHES "Linux")
-    # We have to patch some dependencies CMake config modules
+  if(UNIX)
+    # DCMTK do not use the right prefix for CMake scripts, this is a simple passthrough to make CMake happy
     install(
-      DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/SlicerCoreSDK/CMake/
-      DESTINATION slicer_core_sdk/content/third_party/lib/cmake
+      DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/SlicerCoreSDK/third_party_patches/cmake/DCMTK/
+      DESTINATION slicer_core_sdk/content/third_party/lib/cmake/DCMTK
     )
   endif()
 else()
