@@ -1,9 +1,6 @@
 [build-system]
-requires = ["scikit-build-core", "slicer-core-sdk", "vtk-sdk"]
+requires = ["scikit-build-core", "slicer-core-sdk", "vtk-sdk==9.6.0"]
 build-backend = "scikit_build_core.build"
-
-[tool.scikit-build]
-build-dir = "wheelbuild"
 
 [project]
 name = "slicer-dummy"
