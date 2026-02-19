@@ -56,8 +56,9 @@ mark_as_superbuild(
     CMAKE_CXX_FLAGS_RELWITHDEBINFO
     CMAKE_CXX_FLAGS_MINSIZEREL
     CMAKE_POSITION_INDEPENDENT_CODE
-    # forward VTK and other prefixes
+    # forward VTK and helper prefixes
     CMAKE_PREFIX_PATH
+    CMAKE_MODULE_PATH
     CMAKE_INSTALL_RPATH
     # Forward main scikit-build core properties
     SKBUILD_STATE

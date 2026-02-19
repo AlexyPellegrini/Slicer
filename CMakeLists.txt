@@ -21,13 +21,6 @@ if(BUILD_SDK AND (NOT DEFINED SDK_DEPS_DIR OR NOT EXISTS "${SDK_DEPS_DIR}"))
   message(FATAL_ERROR "SDK_DEPS_DIR must be defined to the location of ITK (and its dependencies) and vtkAddon install trees.")
 endif()
 
-include(FetchContent)
-FetchContent_Declare(vtk-sdk-python-helper
-  GIT_REPOSITORY https://github.com/Kitware/vtk-sdk-python-wheel-helper.git
-  GIT_TAG        main
-)
-FetchContent_MakeAvailable(vtk-sdk-python-helper)
-
 set(modules
   # Libs/
   Slicer::ITK
@@ -82,6 +75,8 @@ set(layout Runtime)
 if(BUILD_SDK)
   set(layout SDK)
 endif()
+
+include(VTKSDKPythonWheelHelper)
 
 # Install runtime only dependencies
 vtksdk_build_modules(${SKBUILD_PROJECT_NAME}

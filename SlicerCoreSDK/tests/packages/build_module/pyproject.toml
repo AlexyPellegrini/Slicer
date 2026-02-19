@@ -1,5 +1,10 @@
 [build-system]
-requires = ["scikit-build-core", "slicer-core-sdk", "vtk-sdk==9.6.0"]
+requires = [
+  "scikit-build-core",
+  "vtk-sdk-python-wheel-helper",
+  "slicer-core-sdk",
+  "vtk-sdk==9.6.0"
+]
 build-backend = "scikit_build_core.build"
 
 [project]
