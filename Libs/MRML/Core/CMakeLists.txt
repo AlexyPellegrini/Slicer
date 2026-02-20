@@ -274,7 +274,11 @@ vtk_module_link(Slicer::MRMLCore
     ${ITK_LIBRARIES}
     RapidJSON
     ${LibArchive_LIBRARY}
-    Teem::teem
+    ${Teem_LIBRARIES}
 )
 
-vtk_module_include(Slicer::MRMLCore PRIVATE ${LibArchive_INCLUDE_DIRS})
+vtk_module_include(Slicer::MRMLCore
+  PRIVATE
+    ${LibArchive_INCLUDE_DIRS}
+    ${Teem_INCLUDE_DIRS}
+)

@@ -43,10 +43,12 @@ vtk_module_add_module(Slicer::Teem
   HEADERS ${headers}
 )
 
+vtk_module_include(Slicer::Teem PRIVATE ${Teem_INCLUDE_DIRS})
+
 vtk_module_link(Slicer::Teem
   PUBLIC
     ${ITK_LIBRARIES}
     vtkAddon
   PRIVATE
-    Teem::teem
+    ${Teem_LIBRARIES}
 )
