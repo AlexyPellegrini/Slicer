@@ -90,6 +90,10 @@ slicercore_generate_module_wrapper(
   OUTPUT_VAR wrapper_header_file
 )
 
+# vtkMRMLMarkupsFiducialStorageNode.cxx expect vtkSlicerVersionConfigureMinimal.h to define Slicer_VERSION to some string
+set(version_header_file "${CMAKE_CURRENT_BINARY_DIR}/vtkSlicerVersionConfigureMinimal.h")
+file(WRITE "${version_header_file}" "#define Slicer_VERSION \"slicer-core-${SKBUILD_PROJECT_VERSION}\"")
+
 # --------------------------------------------------------------------------
 # Sources
 # --------------------------------------------------------------------------
@@ -265,6 +269,7 @@ vtk_module_add_module(Slicer::MRMLCore
   EXPORT_MACRO_PREFIX VTK_MRML
   CLASSES ${classes}
   HEADERS ${headers}
+  PRIVATE_HEADERS ${version_header_file}
 )
 
 vtk_module_link(Slicer::MRMLCore
