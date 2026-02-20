@@ -7,11 +7,12 @@ option(BUILD_SDK "If ON, build SlicerCore-SDK instead of SlicerCore runtime" OFF
 option(USE_SUPERBUILD "Build dependencies using Slicer superbuild" ON)
 option(USE_SYSTEM_LINKER "Slicer core uses mold or lld on Linux when available, if ON this will fallback to system linker" OFF)
 
-list(PREPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/CMake")
-include(SlicerCoreBuildConfiguration) # do some special configurations
+list(APPEND CMAKE_MODULE_PATH
+  "${CMAKE_CURRENT_SOURCE_DIR}/SlicerCore/CMake"
+  "${CMAKE_CURRENT_SOURCE_DIR}/CMake"
+)
 include(SlicerCoreModuleWrapper)
 
-# Superbuild
 if(USE_SUPERBUILD)
   include(SlicerCoreSuperbuild)
   return()
