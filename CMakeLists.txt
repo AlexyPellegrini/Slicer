@@ -91,7 +91,7 @@ if(BUILD_SDK)
     PREFIX_PATHS
       "slicer_core_sdk/content/third_party"
     CMAKE_MODULES_INCLUDED
-      "${CMAKE_CURRENT_SOURCE_DIR}/CMake/SlicerCoreModuleWrapper.cmake"
+      "${CMAKE_CURRENT_SOURCE_DIR}/SlicerCore/CMake/SlicerCoreModuleWrapper.cmake"
   )
 
   # Install dependencies required to consume SlicerCore as a SDK

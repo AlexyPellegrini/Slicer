@@ -19,7 +19,7 @@ configure_file(
 )
 
 slicercore_generate_module_wrapper(
-  HEADER_NAME "vtkSegmentationCoreModule.h"
+  HEADER_NAME "vtkSegmentationCoreExport.h"
   OUTPUT_VAR wrapper_header_file
 )
 

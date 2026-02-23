@@ -18,7 +18,7 @@ vtk_module_find_package(PACKAGE Teem PRIVATE_IF_SHARED)
 # Configure headers
 # --------------------------------------------------------------------------
 slicercore_generate_module_wrapper(
-  HEADER_NAME "vtkTeemModule.h"
+  HEADER_NAME "vtkTeemExport.h"
   OUTPUT_VAR wrapper_header_file
 )
 
@@ -33,14 +33,10 @@ set(classes
   vtkImageLabelCombine
   )
 
-set(headers
-  ${wrapper_header_file}
-)
-
 vtk_module_add_module(Slicer::Teem
   EXPORT_MACRO_PREFIX VTK_Teem
   CLASSES ${classes}
-  HEADERS ${headers}
+  HEADERS "${wrapper_header_file}"
 )
 
 vtk_module_include(Slicer::Teem PRIVATE ${Teem_INCLUDE_DIRS})

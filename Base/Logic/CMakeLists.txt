@@ -24,11 +24,15 @@ include(${ITK_USE_FILE})
 
 vtk_module_find_package(PACKAGE vtkAddon)
 
-
 # --------------------------------------------------------------------------
 # Sources
 # --------------------------------------------------------------------------
 add_subdirectory(Resources)
+
+slicercore_generate_module_wrapper(
+  HEADER_NAME "vtkSlicerBaseLogicExport.h"
+  OUTPUT_VAR wrapper_header_file
+)
 
 set(classes
   # Logic classes (data management and calculation)
@@ -47,8 +51,7 @@ set(classes
 
 set(headers
   vtkSlicerBaseLogic.h
-  vtkSlicerBaseLogicExport.h
-  ${CMAKE_CURRENT_BINARY_DIR}/${configure_header_file}
+  "${wrapper_header_file}"
 )
 
 vtk_module_add_module(Slicer::BaseLogic

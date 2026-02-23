@@ -20,8 +20,9 @@ configure_file(
 )
 
 slicercore_generate_module_wrapper(
-  HEADER_NAME "vtkMRMLDisplayableManagerModule.h"
+  HEADER_NAME "vtkMRMLDisplayableManagerExport.h"
   OUTPUT_VAR wrapper_header_file
+  ADDITIONAL_INCLUDES ${configure_header_file}
 )
 
 set(classes
@@ -88,7 +89,6 @@ if(VTK_WRAP_PYTHON)
 endif()
 
 set(headers
-  vtkMRMLDisplayableManagerExport.h
   ${CMAKE_CURRENT_BINARY_DIR}/${configure_header_file}
   ${wrapper_header_file}
 )

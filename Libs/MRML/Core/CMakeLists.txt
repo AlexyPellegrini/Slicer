@@ -1,4 +1,4 @@
-set(MRML_APPLICATION_NAME "SlicerLib" CACHE STRING "Current MRML scene creator application name" )
+set(MRML_APPLICATION_NAME "slicer-core" CACHE STRING "Current MRML scene creator application name" )
 mark_as_advanced(MRML_APPLICATION_NAME)
 
 # The format is: 0xXXYYZZ where XX is the major version, YY the minor and
@@ -86,8 +86,9 @@ configure_file(
   )
 
 slicercore_generate_module_wrapper(
-  HEADER_NAME "vtkMRMLCoreModule.h"
+  HEADER_NAME "vtkMRMLExport.h"
   OUTPUT_VAR wrapper_header_file
+  ADDITIONAL_INCLUDES "vtkMRMLConfigure.h"
 )
 
 # vtkMRMLMarkupsFiducialStorageNode.cxx expect vtkSlicerVersionConfigureMinimal.h to define Slicer_VERSION to some string
@@ -236,7 +237,6 @@ set(classes
 
 set(headers
   vtkMRML.h
-  vtkMRMLExport.h
   vtkMRMLNodePropertyMacros.h
   vtkMRMLTranslator.h
   vtkMRMLSubjectHierarchyConstants.h

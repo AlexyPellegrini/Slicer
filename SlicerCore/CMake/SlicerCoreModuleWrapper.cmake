@@ -5,11 +5,12 @@
 
   - `HEADER_NAME`: Name of generated header, should be the name of the export header used in Slicer codebase.
   - `OUTPUT_VAR`: Optional output variable name, if specified it will be set to the path of header file.
+  - `ADDITIONAL_INCLUDES`: Optional list of header names to include. They are wrapped with `<` and `>`.
 
-  For example, in Slicer::MRMLCore module, old export header was named "vtkMRMLCoreModule.h",
+  For example, in Slicer::MRMLCore module, old export header was named "vtkMRMLCoreExport.h",
   but with given module library name, the generated export header is "MRMLCoreModule.h", so the command would be:
-  `slicercore_generate_module_wrapper(Slicer::MRMLCore "vtkMRMLCoreModule.h")`
-  "vtkMRMLCoreModule.h" will include "MRMLCoreModule.h".
+  `slicercore_generate_module_wrapper(Slicer::MRMLCore "vtkMRMLCoreExport.h")`
+  "vtkMRMLCoreExport.h" will include "MRMLCoreModule.h".
 
   Note that this command must only be called in the CMakeLists.txt of a VTK module!
 
@@ -18,13 +19,14 @@
   slicercore_generate_module_wrapper(
     HEADER_NAME <name>
     [OUTPUT_VAR <name>]
+    [ADDITIONAL_INCLUDES <names...>]
     )
 #]==]
 function(slicercore_generate_module_wrapper)
   cmake_parse_arguments(PARSE_ARGV 0 arg
     ""
     "HEADER_NAME;OUTPUT_VAR"
-    ""
+    "ADDITIONAL_INCLUDES"
   )
 
   if(NOT arg_HEADER_NAME)
@@ -50,6 +52,9 @@ function(slicercore_generate_module_wrapper)
   string(APPEND content "#ifndef ${lib_name}Module_WRAPPER_H_INCLUDE\n")
   string(APPEND content "#define ${lib_name}Module_WRAPPER_H_INCLUDE\n")
   string(APPEND content "#include <${lib_name}Module.h>\n")
+  foreach(file IN LISTS arg_ADDITIONAL_INCLUDES)
+    string(APPEND content "#include <${file}>\n")
+  endforeach()
   string(APPEND content "#endif\n")
 
   set(output_file "${CMAKE_CURRENT_BINARY_DIR}/${arg_HEADER_NAME}")

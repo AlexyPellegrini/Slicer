@@ -51,7 +51,7 @@ configure_file(
   )
 
 slicercore_generate_module_wrapper(
-  HEADER_NAME "vtkITKModule.h"
+  HEADER_NAME "vtkITKExport.h"
   OUTPUT_VAR wrapper_header_file
 )
 
@@ -90,7 +90,6 @@ set(sources
 )
 
 set(headers
-  vtkITKExport.h
   vtkITKNumericTraits.h
   ${CMAKE_CURRENT_BINARY_DIR}/${configure_header_file}
   ${wrapper_header_file}
