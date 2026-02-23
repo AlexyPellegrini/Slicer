@@ -10,8 +10,9 @@ vtk_module_find_package(
 )
 include(${ITK_USE_FILE})
 
-vtk_module_find_package(PACKAGE Teem)
 vtk_module_find_package(PACKAGE vtkAddon)
+
+vtk_module_find_package(PACKAGE Teem PRIVATE_IF_SHARED)
 
 # --------------------------------------------------------------------------
 # Configure headers
@@ -42,4 +43,10 @@ vtk_module_add_module(Slicer::Teem
   HEADERS ${headers}
 )
 
-vtk_module_link(Slicer::Teem PUBLIC ${ITK_LIBRARIES} vtkAddon Teem::teem)
+vtk_module_link(Slicer::Teem
+  PUBLIC
+    ${ITK_LIBRARIES}
+    vtkAddon
+  PRIVATE
+    Teem::teem
+)

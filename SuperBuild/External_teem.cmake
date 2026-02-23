@@ -64,7 +64,6 @@ if(NOT DEFINED Teem_DIR AND NOT Slicer_USE_SYSTEM_${proj})
       # Not needed -DCMAKE_CXX_FLAGS:STRING=${ep_common_cxx_flags}
       -DCMAKE_C_COMPILER:FILEPATH=${CMAKE_C_COMPILER}
       -DCMAKE_C_FLAGS:STRING=${ep_common_c_flags}
-      -DCMAKE_INSTALL_PREFIX:PATH=${EP_DEPENDENCIES_INSTALL_DIR}
       -DBUILD_TESTING:BOOL=OFF
       -DBUILD_SHARED_LIBS:BOOL=ON
       ${CMAKE_PROJECT_INCLUDE_EXTERNAL_PROJECT_ARG}
@@ -81,13 +80,14 @@ if(NOT DEFINED Teem_DIR AND NOT Slicer_USE_SYSTEM_${proj})
       -DPNG_PNG_INCLUDE_DIR:PATH=${PNG_INCLUDE_DIR}
       -DTeem_PNG_DLLCONF_IPATH:PATH=${VTK_DIR}/Utilities
       ${EXTERNAL_PROJECT_OPTIONAL_CMAKE_CACHE_ARGS}
+    INSTALL_COMMAND ""
     DEPENDS
       ${${proj}_DEPENDENCIES}
     )
 
   ExternalProject_GenerateProjectDescription_Step(${proj})
 
-  set(Teem_DIR ${EP_DEPENDENCIES_INSTALL_DIR}/lib/cmake/teem)
+  set(Teem_DIR ${EP_BINARY_DIR})
 
   #-----------------------------------------------------------------------------
   # Launcher setting specific to build tree

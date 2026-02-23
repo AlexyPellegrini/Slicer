@@ -53,6 +53,11 @@ vtk_module_find_package(
 )
 
 vtk_module_find_package(
+  PACKAGE Teem
+  PRIVATE_IF_SHARED
+)
+
+vtk_module_find_package(
   PACKAGE ITK
   COMPONENTS
     ITKCommon
@@ -269,6 +274,7 @@ vtk_module_link(Slicer::MRMLCore
     ${ITK_LIBRARIES}
     RapidJSON
     ${LibArchive_LIBRARY}
+    Teem::teem
 )
 
 vtk_module_include(Slicer::MRMLCore PRIVATE ${LibArchive_INCLUDE_DIRS})
