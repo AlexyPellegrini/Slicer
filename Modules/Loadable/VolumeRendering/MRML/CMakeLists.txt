@@ -1,49 +1,28 @@
-project(vtkSlicer${MODULE_NAME}ModuleMRML)
-
-set(KIT ${PROJECT_NAME})
-
-set(${KIT}_EXPORT_DIRECTIVE "VTK_SLICER_${MODULE_NAME_UPPER}_MODULE_MRML_EXPORT")
-
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR})
 find_package(JsonCpp REQUIRED)
 
-set(${KIT}_INCLUDE_DIRECTORIES
-  ${JsonCpp_INCLUDE_DIR}
-  ${vtkSlicerMarkupsModuleMRML_SOURCE_DIR}
-  )
+set(classes
+  vtkMRMLCPURayCastVolumeRenderingDisplayNode
+  vtkMRMLGPURayCastVolumeRenderingDisplayNode
+  vtkMRMLMultiVolumeRenderingDisplayNode
+  vtkMRMLShaderPropertyNode
+  vtkMRMLShaderPropertyStorageNode
+  vtkMRMLVolumePropertyJsonStorageNode
+  vtkMRMLVolumePropertyNode
+  vtkMRMLVolumePropertyStorageNode
+  vtkMRMLVolumeRenderingDisplayNode
+)
 
-set(${KIT}_SRCS
-  vtkMRMLCPURayCast${MODULE_NAME}DisplayNode.cxx
-  vtkMRMLCPURayCast${MODULE_NAME}DisplayNode.h
-  vtkMRMLGPURayCast${MODULE_NAME}DisplayNode.cxx
-  vtkMRMLGPURayCast${MODULE_NAME}DisplayNode.h
-  vtkMRMLMulti${MODULE_NAME}DisplayNode.cxx
-  vtkMRMLMulti${MODULE_NAME}DisplayNode.h
-  vtkMRMLShaderPropertyNode.cxx
-  vtkMRMLShaderPropertyNode.h
-  vtkMRMLShaderPropertyStorageNode.cxx
-  vtkMRMLShaderPropertyStorageNode.h
-  vtkMRMLVolumePropertyNode.cxx
-  vtkMRMLVolumePropertyNode.h
-  vtkMRMLVolumePropertyJsonStorageNode.cxx
-  vtkMRMLVolumePropertyJsonStorageNode.h
-  vtkMRMLVolumePropertyStorageNode.cxx
-  vtkMRMLVolumePropertyStorageNode.h
-  vtkMRML${MODULE_NAME}DisplayNode.cxx
-  vtkMRML${MODULE_NAME}DisplayNode.h
-  )
+slicercore_generate_module_wrapper(
+  HEADER_NAME "vtkSlicerVolumeRenderingModuleMRMLExport.h"
+  OUTPUT_VAR wrapper_header_file
+)
 
-set(${KIT}_TARGET_LIBRARIES
-  ${ITK_LIBRARIES}
-  ${JsonCpp_LIBRARY}
-  ${MRML_LIBRARIES}
-  vtkSlicerMarkupsModuleMRML
-  )
+vtk_module_add_module(Slicer::VolumeRenderingModuleMRML
+  EXPORT_MACRO_PREFIX VTK_SLICER_VOLUMERENDERING_MODULE_MRML
+  CLASSES ${classes}
+  HEADERS ${wrapper_header_file}
+)
 
-#-----------------------------------------------------------------------------
-SlicerMacroBuildModuleMRML(
-  NAME ${KIT}
-  EXPORT_DIRECTIVE ${${KIT}_EXPORT_DIRECTIVE}
-  INCLUDE_DIRECTORIES ${${KIT}_INCLUDE_DIRECTORIES}
-  SRCS ${${KIT}_SRCS}
-  TARGET_LIBRARIES ${${KIT}_TARGET_LIBRARIES}
-  )
+vtk_module_include(Slicer::VolumeRenderingModuleMRML PUBLIC ${JsonCpp_INCLUDE_DIRS})
+vtk_module_link(Slicer::VolumeRenderingModuleMRML PUBLIC ${JsonCpp_LIBRARY})

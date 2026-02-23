@@ -21,7 +21,6 @@
 #include "vtkMRMLI18N.h"
 #include "vtkMRMLScene.h"
 #include "vtkMRMLMessageCollection.h"
-#include "vtkSlicerVersionConfigureMinimal.h"
 
 #include "vtkObjectFactory.h"
 #include "vtkStringArray.h"
@@ -755,7 +754,6 @@ int vtkMRMLMarkupsFiducialStorageNode::WriteDataInternal(vtkMRMLNode* refNode)
   }
 
   // put down a header
-  of << "# Markups fiducial file version = " << Slicer_VERSION << std::endl;
   of << "# CoordinateSystem = " << vtkMRMLMarkupsStorageNode::GetCoordinateSystemAsString(this->GetCoordinateSystem()) << std::endl;
 
   // label the columns
