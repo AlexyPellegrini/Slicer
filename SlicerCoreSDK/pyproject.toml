@@ -1,0 +1,50 @@
+[build-system]
+requires = [
+  "scikit-build-core",
+  "vtk-sdk==9.6.0",
+  "vtk-sdk-python-wheel-helper"
+]
+build-backend = "scikit_build_core.build"
+
+[tool.scikit-build]
+build-dir = "../wheelbuild"
+cmake.source-dir = ".."
+cmake.args = ["-GNinja", "-DCMAKE_BUILD_TYPE=Release", "-DBUILD_SDK=ON"]
+
+[project]
+name = "slicer-core-sdk"
+version = "5.11.0.6"
+dependencies = ["vtk==9.6.0"]
+requires-python = ">=3.10"
+readme = "README.md"
+license = { text = "Apache 2.0 License" }
+description = "Slicer Core SDK"
+authors = [
+  { name = "Kitware Europe", email = "kitware@kitware.eu" },
+  { name = "Alexy Pellegrini", email = "alexy.pellegrini@kitware.com" },
+]
+classifiers = [
+  "License :: OSI Approved :: Apache Software License",
+  "Natural Language :: English",
+  "Programming Language :: Python",
+  "Programming Language :: C++",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Education",
+  "Intended Audience :: Healthcare Industry",
+  "Intended Audience :: Science/Research",
+  "Topic :: Multimedia :: Graphics",
+  "Topic :: Multimedia :: Graphics :: 3D Rendering",
+  "Topic :: Scientific/Engineering",
+  "Topic :: Scientific/Engineering :: Chemistry",
+  "Topic :: Scientific/Engineering :: Information Analysis",
+  "Topic :: Scientific/Engineering :: Medical Science Apps.",
+  "Topic :: Scientific/Engineering :: Physics",
+  "Topic :: Scientific/Engineering :: Visualization",
+  "Topic :: Software Development :: Libraries",
+  "Operating System :: Microsoft :: Windows",
+  "Operating System :: POSIX :: Linux",
+  "Operating System :: MacOS"
+]
+
+[project.entry-points."cmake.prefix"]
+SlicerCore = "slicer_core_sdk.cmake"

@@ -1,0 +1,5 @@
+[pytest]
+markers = [
+    "runtime: Run tests that only requires SlicerCore runtime wheel",
+    "sdk: Run tests that requires both SlicerCore and its SDK",
+]
