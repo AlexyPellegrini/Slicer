@@ -1203,6 +1203,7 @@ endif()
 #-----------------------------------------------------------------------------
 
 add_subdirectory(Libs)
+# Build VTK modules here
 add_subdirectory(Base)
 add_subdirectory(Resources)
 add_subdirectory(Utilities/Scripts)
