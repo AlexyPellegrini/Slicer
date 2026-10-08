@@ -182,6 +182,12 @@ if(Slicer_USE_PYTHONQT)
   set(SLICER_PYTHONPATH_BUILD
     "<APPLAUNCHER_SETTINGS_DIR>/bin/<CMAKE_CFG_INTDIR>"
     "<APPLAUNCHER_SETTINGS_DIR>/bin/Python"
+    # Slicer's Python package and its wrapped modules are installed side by side
+    # in lib/site-packages/slicer. The package directory itself is on the path so
+    # that the wrapped modules can be imported both as "slicer.<module>" and by
+    # their bare name (e.g. mrml.py does "from MRMLCore import *").
+    "<APPLAUNCHER_SETTINGS_DIR>/lib/site-packages/slicer"
+    "<APPLAUNCHER_SETTINGS_DIR>/lib/site-packages"
     )
   if(Slicer_BUILD_QTLOADABLEMODULES)
     list(APPEND SLICER_PYTHONPATH_BUILD
@@ -190,11 +196,9 @@ if(Slicer_USE_PYTHONQT)
       )
   endif()
 
-  if(Slicer_USE_PYTHONQT)
-    list(APPEND SLICER_PYTHONPATH_BUILD
-      "<APPLAUNCHER_SETTINGS_DIR>/${Slicer_QTSCRIPTEDMODULES_LIB_DIR}"
-      )
-  endif()
+  list(APPEND SLICER_PYTHONPATH_BUILD
+    "<APPLAUNCHER_SETTINGS_DIR>/${Slicer_QTSCRIPTEDMODULES_LIB_DIR}"
+    )
 
   # External projects - pythonpath
   foreach(varname IN LISTS Slicer_EP_LABEL_PYTHONPATH_LAUNCHER_BUILD)

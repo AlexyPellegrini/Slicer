@@ -98,6 +98,7 @@ set(Slicer_DEPENDENCIES
   LibArchive
   RapidJSON
   SlicerExecutionModel
+  vtkAddon
   )
 
 set(CURL_ENABLE_SSL ${Slicer_USE_PYTHONQT_WITH_OPENSSL})
@@ -198,12 +199,8 @@ endmacro()
 # Include remote libraries
 #------------------------------------------------------------------------------
 
-Slicer_Remote_Add(vtkAddon
-  GIT_REPOSITORY "${EP_GIT_PROTOCOL}://github.com/Slicer/vtkAddon"
-  GIT_TAG 3dc6d63a86ed099d1da05dd10aa5ff4c49728959
-  OPTION_NAME Slicer_BUILD_vtkAddon
-  )
-list_conditional_append(Slicer_BUILD_vtkAddon Slicer_REMOTE_DEPENDENCIES vtkAddon)
+set(vtkAddon_SOURCE_DIR ${CMAKE_BINARY_DIR}/vtkAddon)
+list_conditional_append(Slicer_BUILD_vtkAddon Slicer_DEPENDENCIES vtkAddon)
 
 set(vtkAddon_CMAKE_DIR ${vtkAddon_SOURCE_DIR}/CMake)
 mark_as_superbuild(vtkAddon_CMAKE_DIR:PATH)

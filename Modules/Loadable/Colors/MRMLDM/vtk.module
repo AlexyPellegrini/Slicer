@@ -3,6 +3,8 @@ NAME
 LIBRARY_NAME
   vtkSlicerColorsModuleMRMLDisplayableManager
 IMPLEMENTABLE
+IMPLEMENTS
+  Slicer::MRMLDisplayableManager
 DEPENDS
   Slicer::ColorsModuleLogic
   Slicer::ColorsModuleMRML

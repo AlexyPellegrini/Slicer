@@ -3,6 +3,8 @@ NAME
 LIBRARY_NAME
   vtkSlicerTransformsModuleMRMLDisplayableManager
 IMPLEMENTABLE
+IMPLEMENTS
+  Slicer::MRMLDisplayableManager
 DEPENDS
   Slicer::TransformsModuleLogic
   Slicer::MRMLDisplayableManager

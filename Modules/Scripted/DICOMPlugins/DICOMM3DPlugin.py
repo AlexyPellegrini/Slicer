@@ -1,7 +1,7 @@
 import os
 import io
 import shutil
-import vtkSegmentationCorePython as vtkSegmentationCore
+from slicer import vtkSegmentationCore
 import logging
 
 import slicer

@@ -194,7 +194,7 @@ class SegmentationWidgetsTest1(ScriptedLoadableModuleTest):
         [tinyVolumeNode, tinySegmentationNode] = SampleData.downloadSamples("TinyPatient")
 
         # Convert MRHead to oriented image data
-        import vtkSlicerSegmentationsModuleLogicPython as vtkSlicerSegmentationsModuleLogic
+        import vtkSlicerSegmentationsModuleLogic as vtkSlicerSegmentationsModuleLogic
         mrOrientedImageData = vtkSlicerSegmentationsModuleLogic.vtkSlicerSegmentationsModuleLogic.CreateOrientedImageDataFromVolumeNode(mrVolumeNode)
         mrOrientedImageData.UnRegister(None)
 

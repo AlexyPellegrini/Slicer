@@ -22,6 +22,9 @@ vtk_module_find_package(
 )
 include(${ITK_USE_FILE})
 
+# Register the default ITK factories (see Libs/ITKFactoryRegistration).
+list(APPEND ITK_LIBRARIES ITKFactoryRegistration)
+
 vtk_module_find_package(PACKAGE vtkAddon)
 
 # --------------------------------------------------------------------------
@@ -69,6 +72,8 @@ vtk_module_link(Slicer::BaseLogic
 )
 
 vtk_module_include(Slicer::BaseLogic
+  PUBLIC
+    ${ITKFactoryRegistration_INCLUDE_DIRS}
   PRIVATE
     ${ModuleDescriptionParser_INCLUDE_DIRS}
     ${LibArchive_INCLUDE_DIRS}

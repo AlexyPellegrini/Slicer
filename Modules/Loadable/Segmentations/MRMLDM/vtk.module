@@ -3,6 +3,8 @@ NAME
 LIBRARY_NAME
   vtkSlicerSegmentationsModuleMRMLDisplayableManager
 IMPLEMENTABLE
+IMPLEMENTS
+  Slicer::MRMLDisplayableManager
 DEPENDS
   Slicer::SegmentationsModuleMRML
   VTK::RenderingOpenGL2

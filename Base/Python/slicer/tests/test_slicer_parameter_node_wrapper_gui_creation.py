@@ -8,7 +8,7 @@ import qt
 import slicer
 from slicer.parameterNodeWrapper import *
 
-from MRMLCorePython import (
+from MRMLCore import (
     vtkMRMLNode,
     vtkMRMLModelNode,
     vtkMRMLScalarVolumeNode,

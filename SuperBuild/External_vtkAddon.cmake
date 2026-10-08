@@ -31,18 +31,18 @@ if(NOT DEFINED vtkAddon_DIR AND NOT Slicer_USE_SYSTEM_${proj})
 
   set(EP_SOURCE_DIR ${CMAKE_BINARY_DIR}/${proj})
   set(EP_BINARY_DIR ${CMAKE_BINARY_DIR}/${proj}-build)
-  set(EP_INSTALL_DIR ${EP_DEPENDENCIES_INSTALL_DIR})
+  set(EP_INSTALL_DIR ${CMAKE_BINARY_DIR}/${proj}-install)
 
-  # vtkAddon wraps using a custom wrapping tool that does not know about the VTK SDK.
-  # We have to set the RPATHs to ensure both VTK and vtkAddon native library is found.
-  set(install_rpath)
-  if(APPLE)
-    set(install_rpath "$loader_path/third_party.libs" "@loader_path/../vtkmodules/.dylibs")
-  elseif(NOT WIN32)
-    set(install_rpath "$ORIGIN/third_party.libs" "$ORIGIN/../vtkmodules")
-  endif()
-  # This helps installation to be cross-platform, as we can ignore the actual name of the file.
-  set(python_destination "lib/vtkAddon/pymodules")
+  ## vtkAddon wraps using a custom wrapping tool that does not know about the VTK SDK.
+  ## We have to set the RPATHs to ensure both VTK and vtkAddon native library is found.
+  #set(install_rpath)
+  #if(APPLE)
+  #  set(install_rpath "$loader_path/third_party.libs" "@loader_path/../vtkmodules/.dylibs")
+  #elseif(NOT WIN32)
+  #  set(install_rpath "$ORIGIN/third_party.libs" "$ORIGIN/../vtkmodules")
+  #endif()
+  ## This helps installation to be cross-platform, as we can ignore the actual name of the file.
+  #set(python_destination "lib/vtkAddon/pymodules")
 
   ExternalProject_Add(${proj}
     ${${proj}_EP_ARGS}
@@ -56,7 +56,7 @@ if(NOT DEFINED vtkAddon_DIR AND NOT Slicer_USE_SYSTEM_${proj})
       -DCMAKE_C_COMPILER:FILEPATH=${CMAKE_C_COMPILER}
       -DCMAKE_C_FLAGS:STRING=${ep_common_c_flags}
       -DCMAKE_BUILD_TYPE:STRING=${CMAKE_BUILD_TYPE}
-      -DCMAKE_INSTALL_PREFIX:PATH=${EP_INSTALL_DIR}
+      #-DCMAKE_INSTALL_PREFIX:PATH=${EP_INSTALL_DIR}
       -DBUILD_SHARED_LIBS:BOOL=ON
       -DBUILD_TESTING:BOOL=OFF
       -DvtkAddon_USE_UTF8:BOOL=ON
@@ -74,17 +74,17 @@ if(NOT DEFINED vtkAddon_DIR AND NOT Slicer_USE_SYSTEM_${proj})
 
   ExternalProject_GenerateProjectDescription_Step(${proj})
 
-  set(vtkAddon_DIR ${EP_INSTALL_DIR}/vtkAddon/lib/cmake/vtkAddon)
-  set(vtkAddon_PYTHON_DIR "${EP_INSTALL_DIR}/${python_destination}")
+  set(vtkAddon_DIR ${EP_BINARY_DIR}/vtkAddon/lib/cmake/vtkAddon)
+  set(vtkAddon_PYTHON_DIR "${EP_BINARY_DIR}/${python_destination}")
 
   # Add path to SlicerLauncherSettings.ini
-  set(${proj}_LIBRARY_PATHS_LAUNCHER_BUILD ${vtkAddon_DIR}/<CMAKE_CFG_INTDIR>)
+  set(${proj}_LIBRARY_PATHS_LAUNCHER_BUILD ${EP_BINARY_DIR}/<CMAKE_CFG_INTDIR>)
   mark_as_superbuild(
     VARS ${proj}_LIBRARY_PATHS_LAUNCHER_BUILD
     LABELS "LIBRARY_PATHS_LAUNCHER_BUILD"
   )
   # Add pythonpath to SlicerLauncherSettings.ini
-  set(${proj}_PYTHONPATH_LAUNCHER_BUILD ${vtkAddon_DIR}/<CMAKE_CFG_INTDIR>)
+  set(${proj}_PYTHONPATH_LAUNCHER_BUILD ${EP_BINARY_DIR}/<CMAKE_CFG_INTDIR>)
   mark_as_superbuild(
     VARS ${proj}_PYTHONPATH_LAUNCHER_BUILD
     LABELS "PYTHONPATH_LAUNCHER_BUILD"

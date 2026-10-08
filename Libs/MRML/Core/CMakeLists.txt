@@ -271,6 +271,7 @@ vtk_module_add_module(Slicer::MRMLCore
 vtk_module_link(Slicer::MRMLCore
   PUBLIC
     vtkAddon
+    ITKFactoryRegistration
   PRIVATE
     ${ITK_LIBRARIES}
     RapidJSON
@@ -279,6 +280,8 @@ vtk_module_link(Slicer::MRMLCore
 )
 
 vtk_module_include(Slicer::MRMLCore
+  PUBLIC
+    ${ITKFactoryRegistration_INCLUDE_DIRS}
   PRIVATE
     ${LibArchive_INCLUDE_DIRS}
     ${Teem_INCLUDE_DIRS}

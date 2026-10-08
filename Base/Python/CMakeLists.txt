@@ -62,7 +62,7 @@ ctkMacroCompilePythonScript(
   TARGET_NAME SlicerBase
   SCRIPTS "${Slicer_PYTHON_SCRIPTS}"
   RESOURCES "${Slicer_PYTHON_RESOURCES}"
-  DESTINATION_DIR ${Slicer_BINARY_DIR}/bin/Python
+  DESTINATION_DIR ${Slicer_BINARY_DIR}/lib/site-packages
   INSTALL_DIR ${Slicer_INSTALL_BIN_DIR}
   )
 

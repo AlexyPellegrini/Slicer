@@ -651,6 +651,8 @@ set(Slicer_VTK_COMPONENTS
   FiltersParallel
   GUISupportQtSQL
   IOExport
+  IOExportGL2PS
+  IOGeometry
   IOImage
   IOLegacy
   IOPLY
@@ -1020,13 +1022,18 @@ endif()
 # will be removed.
 
 #-----------------------------------------------------------------------------
+# vtkAddon
+#-----------------------------------------------------------------------------
+# The legacy Slicer module build macros use vtkAddon's wrapping infrastructure.
+find_package(vtkAddon REQUIRED)
+include(vtkMacroKitPythonWrap)
+
+#-----------------------------------------------------------------------------
 # VTK
 #-----------------------------------------------------------------------------
 find_package(VTK REQUIRED)
-set(VTK_LIBRARIES "")
 find_package(VTK ${Slicer_VTK_MINIMUM_SUPPORTED_VERSION} COMPONENTS ${Slicer_VTK_COMPONENTS} REQUIRED)
 set(VTK_GUI_SUPPORT_QT_TARGET_NAME "VTK::GUISupportQt")
-
 if(NOT TARGET ${VTK_GUI_SUPPORT_QT_TARGET_NAME})
   message(FATAL_ERROR "error: VTK was not configured to use Qt, you probably need "
                     "to recompile it with VTK_USE_GUISUPPORT ON, VTK_Group_Qt ON, "
@@ -1204,6 +1211,12 @@ endif()
 
 add_subdirectory(Libs)
 # Build VTK modules here
+include(${Slicer_SOURCE_DIR}/SlicerCore/CMake/SlicerCoreModuleWrapper.cmake)
+include(${Slicer_CMAKE_DIR}/SlicerBuildVTKModules.cmake)
+slicer_build_vtk_modules(
+  SOURCE_DIR ${Slicer_SOURCE_DIR}
+  INSTALL_HEADERS OFF
+  )
 add_subdirectory(Base)
 add_subdirectory(Resources)
 add_subdirectory(Utilities/Scripts)
@@ -1371,7 +1384,7 @@ endforeach()
 
 # Add target configuring 'vtkSlicerVersionConfigure.h' at build time.
 include(SlicerConfigureVersionHeaderTarget)
-add_dependencies(SlicerBaseLogic SlicerConfigureVersionHeader)
+add_dependencies(BaseLogic SlicerConfigureVersionHeader)
 add_dependencies(MRMLCore SlicerConfigureVersionHeader)
 
 list(APPEND files vtkSlicerVersionConfigure.h)

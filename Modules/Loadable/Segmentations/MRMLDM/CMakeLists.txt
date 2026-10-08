@@ -10,7 +10,7 @@ endforeach()
 vtk_object_factory_configure(
   SOURCE_FILE vtk_object_factory_source
   HEADER_FILE vtk_object_factory_header
-  EXPORT_MACRO ""
+  EXPORT_MACRO "VTK_SLICER_SEGMENTATIONS_MODULE_MRMLDISPLAYABLEMANAGER_EXPORT"
 )
 
 slicercore_generate_module_wrapper(
@@ -26,5 +26,5 @@ vtk_module_add_module(Slicer::SegmentationsModuleMRMLDisplayableManager
   PRIVATE_HEADERS ${vtk_object_factory_header}
 )
 
-vtk_module_definitions(Slicer::SegmentationsModuleMRMLDisplayableManager PRIVATE
-  "vtkSlicerSegmentationsModuleMRMLDisplayableManager_AUTOINIT=1(vtkSlicerSegmentationsModuleMRMLDisplayableManager)")
+#vtk_module_definitions(Slicer::SegmentationsModuleMRMLDisplayableManager PRIVATE
+#  "vtkSlicerSegmentationsModuleMRMLDisplayableManager_AUTOINIT=1(vtkSlicerSegmentationsModuleMRMLDisplayableManager)")

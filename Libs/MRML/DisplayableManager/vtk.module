@@ -3,6 +3,8 @@ NAME
 LIBRARY_NAME
   MRMLDisplayableManager
 IMPLEMENTABLE
+IMPLEMENTS
+  Slicer::MRMLDisplayableManager
 DEPENDS
   Slicer::MRMLLogic
   VTK::RenderingAnnotation

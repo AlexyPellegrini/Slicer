@@ -1,4 +1,4 @@
-# --------------------------------------------------------------------------
+﻿# --------------------------------------------------------------------------
 # Dependencies
 # --------------------------------------------------------------------------
 
@@ -103,6 +103,7 @@ set(factory_classes
   vtkMRMLModelDisplayableManager
   vtkMRMLViewDisplayableManager
   vtkMRMLThreeDReformatDisplayableManager
+  vtkMRMLThreeDSliceEdgeDisplayableManager
   # DisplayableManager associated with SliceView
   vtkMRMLCrosshairDisplayableManager
   vtkMRMLCrosshairDisplayableManager3D
@@ -124,7 +125,7 @@ endforeach()
 vtk_object_factory_configure(
   SOURCE_FILE vtk_object_factory_source
   HEADER_FILE vtk_object_factory_header
-  EXPORT_MACRO ""
+  EXPORT_MACRO "VTK_MRML_DISPLAYABLEMANAGER_EXPORT"
 )
 
 set_property(GLOBAL PROPERTY "_vtk_module_autoinit_include" "\"vtkAutoInit.h\"")
@@ -139,7 +140,7 @@ vtk_module_add_module(Slicer::MRMLDisplayableManager
 vtk_module_definitions(Slicer::MRMLDisplayableManager
   PRIVATE
     MRMLDisplayableManager_USE_PYTHON
-    "MRMLDisplayableManager_AUTOINIT=1(MRMLDisplayableManager)"
+    #"MRMLDisplayableManager_AUTOINIT=1(MRMLDisplayableManager)"
 )
 vtk_module_link(Slicer::MRMLDisplayableManager
   PUBLIC ${ITK_LIBRARIES}

@@ -266,7 +266,7 @@ segmentationNode.GetClosedSurfaceRepresentation(segmentID, outputPolyData)
 Get binary labelmap representation. If it does not exist then it will be created for that single segment. Applies parent transforms by default (if not desired, another argument needs to be added to the end: false):
 
 ```python
-import vtkSegmentationCorePython as vtkSegmentationCore
+import vtkSegmentationCore as vtkSegmentationCore
 outputOrientedImageData = vtkSegmentationCore.vtkOrientedImageData()
 slicer.vtkSlicerSegmentationsModuleLogic.GetSegmentBinaryLabelmapRepresentation(segmentationNode, segmentID, outputOrientedImageData)
 ```
@@ -298,7 +298,7 @@ segmentation.SetConversionParameter(slicer.vtkSegmentationConverter.GetReference
 Changing smoothing factor for closed surface generation:
 
 ```python
-import vtkSegmentationCorePython as vtkSegmentationCore
+import vtkSegmentationCore as vtkSegmentationCore
 segmentation = getNode("Segmentation").GetSegmentation()
 
 # Turn of surface smoothing

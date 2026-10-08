@@ -3,6 +3,8 @@ NAME
 LIBRARY_NAME
   vtkSlicerMarkupsModuleMRMLDisplayableManager
 IMPLEMENTABLE
+IMPLEMENTS
+  Slicer::MRMLDisplayableManager
 DEPENDS
   Slicer::MarkupsModuleLogic
   Slicer::MarkupsModuleMRML

@@ -3,7 +3,7 @@
 This module corresponds to the Python wrapped ``vtkTeem`` C++ classes.
 
 ```{eval-rst}
-.. automodule:: vtkTeemPython
+.. automodule:: vtkTeem
    :members:
    :undoc-members:
    :show-inheritance:
