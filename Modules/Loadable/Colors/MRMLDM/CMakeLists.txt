@@ -22,6 +22,3 @@ vtk_module_add_module(Slicer::ColorsModuleMRMLDisplayableManager
   HEADERS ${wrapper_header_file}
   PRIVATE_HEADERS ${vtk_object_factory_header}
 )
-
-#vtk_module_definitions(Slicer::ColorsModuleMRMLDisplayableManager PRIVATE
-#  "vtkSlicerColorsModuleMRMLDisplayableManager_AUTOINIT=1(vtkSlicerColorsModuleMRMLDisplayableManager)")

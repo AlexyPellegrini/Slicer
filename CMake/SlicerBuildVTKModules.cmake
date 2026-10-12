@@ -22,29 +22,34 @@ function(slicer_build_vtk_modules)
     Slicer::MRMLLogic
     Slicer::MRMLDisplayableManager
     # Loadable modules
-    Slicer::AnnotationsModuleMRML
     Slicer::AnnotationsModuleLogic
+    Slicer::AnnotationsModuleMRML
     Slicer::CamerasModuleLogic
-    Slicer::ColorsModuleMRML
     Slicer::ColorsModuleLogic
-    Slicer::ColorsModuleVTKWidgets
+    Slicer::ColorsModuleMRML
     Slicer::ColorsModuleMRMLDisplayableManager
-    Slicer::CropVolumeModuleMRML
+    Slicer::ColorsModuleVTKWidgets
     Slicer::CropVolumeModuleLogic
+    Slicer::CropVolumeModuleMRML
     Slicer::DataModuleLogic
-    Slicer::MarkupsModuleMRML
+    Slicer::DICOMLibModuleLogic
+    Slicer::GeneralizedReformatModuleLogic
+    Slicer::GeneralizedReformatModuleMRML
     Slicer::MarkupsModuleLogic
-    Slicer::MarkupsModuleVTKWidgets
+    Slicer::MarkupsModuleMRML
     Slicer::MarkupsModuleMRMLDisplayableManager
+    Slicer::MarkupsModuleVTKWidgets
     Slicer::ModelsModuleLogic
+    Slicer::MultiVolumeExplorerModuleLogic
+    Slicer::MultiVolumeExplorerModuleMRML
     Slicer::PlotsModuleLogic
     Slicer::ReformatModuleLogic
     Slicer::SceneViewsModuleLogic
-    Slicer::SegmentationsModuleMRML
     Slicer::SegmentationsModuleLogic
+    Slicer::SegmentationsModuleMRML
     Slicer::SegmentationsModuleMRMLDisplayableManager
-    Slicer::SequencesModuleMRML
     Slicer::SequencesModuleLogic
+    Slicer::SequencesModuleMRML
     Slicer::SubjectHierarchyModuleLogic
     Slicer::TablesModuleLogic
     Slicer::TerminologiesModuleLogic
@@ -53,15 +58,10 @@ function(slicer_build_vtk_modules)
     Slicer::TransformsModuleMRMLDisplayableManager
     Slicer::UnitsModuleLogic
     Slicer::ViewControllersModuleLogic
-    Slicer::VolumeRenderingModuleMRML
     Slicer::VolumeRenderingModuleLogic
+    Slicer::VolumeRenderingModuleMRML
     Slicer::VolumeRenderingModuleMRMLDisplayableManager
     Slicer::VolumesModuleLogic
-    Slicer::GeneralizedReformatModuleMRML
-    Slicer::GeneralizedReformatModuleLogic
-    Slicer::MultiVolumeExplorerModuleMRML
-    Slicer::MultiVolumeExplorerModuleLogic
-    Slicer::DICOMLibModuleLogic
     # LoadableCustomMarkups template
     Slicer::TemplateKeyModuleMRML
     Slicer::TemplateKeyModuleVTKWidgets
@@ -123,4 +123,25 @@ function(slicer_build_vtk_modules)
   # Provide legacy Slicer target names and CMake variables that referenced
   # libraries now built as VTK modules.
   include(SlicerVTKModuleCompat)
+  
+  # There are 3 names for each module
+  # - The library name on disk, e.g. MRMLCore.[so/dll/dylib], this used to be the real name of the target too.
+  # - The new VTK-like module name, e.g. Slicer::MRMLCore
+  # - The real target name, e.g. MRMLCore (VTK module system only keep the trailing name)
+  # For Slicer::MRMLCore this works as the real target name is the expected one
+  # But for Slicer::ModuleMRML, that used to be called vtkSlicerModuleName now has:
+  # "vtkSlicerModuleName.[so/dll/sylib]" as output name, but "ModuleMRML" as target name.
+  # This logic will map the output library name to be an alias on the module.
+  foreach(module IN LISTS modules)
+    vtk_module_set_properties("${module}" INTERFACE_vtk_module_name "${module}")
+    vtk_module_get_property("${module}"
+      PROPERTY INTERFACE_vtk_module_library_name
+      VARIABLE lib_name
+    )
+    if(NOT TARGET "${lib_name}")
+      message(STATUS "Creating alias ${lib_name} for ${module}.")
+      _vtk_module_real_target(real_target "${module}")
+      add_library("${lib_name}" ALIAS "${real_target}")
+    endif()
+  endforeach()
 endfunction()

@@ -21,6 +21,7 @@ vtk_module_add_module(Slicer::MRMLCLI
   EXPORT_MACRO_PREFIX VTK_MRML_CLI
   CLASSES ${classes}
   HEADERS "${wrapper_header_file}"
+  EXCLUDE_HEADER_TEST
 )
 
 vtk_module_link(Slicer::MRMLCLI PUBLIC ${ITK_LIBRARIES} PRIVATE ModuleDescriptionParser)

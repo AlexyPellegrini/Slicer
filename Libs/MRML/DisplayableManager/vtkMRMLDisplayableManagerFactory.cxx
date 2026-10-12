@@ -37,10 +37,6 @@
 #include <string>
 #include <vector>
 
-// Register VTK object factory overrides
-#include <vtkAutoInit.h>
-VTK_MODULE_INIT(vtkRenderingContextOpenGL2);
-
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkMRMLDisplayableManagerFactory);
 

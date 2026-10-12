@@ -135,13 +135,10 @@ vtk_module_add_module(Slicer::MRMLDisplayableManager
   SOURCES ${vtk_object_factory_source}
   HEADERS ${headers}
   PRIVATE_HEADERS ${vtk_object_factory_header}
+  EXCLUDE_HEADER_TEST
 )
 
-vtk_module_definitions(Slicer::MRMLDisplayableManager
-  PRIVATE
-    MRMLDisplayableManager_USE_PYTHON
-    #"MRMLDisplayableManager_AUTOINIT=1(MRMLDisplayableManager)"
-)
+vtk_module_definitions(Slicer::MRMLDisplayableManager PRIVATE MRMLDisplayableManager_USE_PYTHON)
 vtk_module_link(Slicer::MRMLDisplayableManager
   PUBLIC ${ITK_LIBRARIES}
   PRIVATE VTK::WrappingPythonCore Python3::Module

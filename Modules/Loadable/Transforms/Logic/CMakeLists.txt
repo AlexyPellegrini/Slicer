@@ -15,6 +15,7 @@ vtk_module_add_module(Slicer::TransformsModuleLogic
   EXPORT_MACRO_PREFIX VTK_SLICER_TRANSFORMS_MODULE_LOGIC
   CLASSES ${classes}
   HEADERS ${wrapper_header_file}
+  EXCLUDE_HEADER_TEST
 )
 
 vtk_module_link(Slicer::TransformsModuleLogic PUBLIC ${ITK_LIBRARIES})

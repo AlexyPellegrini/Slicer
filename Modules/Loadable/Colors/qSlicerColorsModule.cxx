@@ -48,10 +48,6 @@
 #include "qSlicerSubjectHierarchyPluginHandler.h"
 #include "qSlicerSubjectHierarchyColorLegendPlugin.h"
 
-// DisplayableManager initialization
-#include <vtkAutoInit.h>
-VTK_MODULE_INIT(vtkSlicerColorsModuleMRMLDisplayableManager)
-
 //-----------------------------------------------------------------------------
 class qSlicerColorsModulePrivate
 {

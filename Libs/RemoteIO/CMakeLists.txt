@@ -40,6 +40,7 @@ vtk_module_add_module(Slicer::RemoteIO
   EXPORT_MACRO_PREFIX VTK_RemoteIO
   CLASSES ${classes}
   HEADERS ${wrapper_header_file}
+  EXCLUDE_HEADER_TEST
 )
 
 vtk_module_link(Slicer::RemoteIO PUBLIC vtkAddon PRIVATE CURL::libcurl_static ZLIB::ZLIB)

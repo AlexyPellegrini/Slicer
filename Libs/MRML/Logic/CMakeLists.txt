@@ -38,6 +38,7 @@ vtk_module_add_module(Slicer::MRMLLogic
   EXPORT_MACRO_PREFIX VTK_MRML_LOGIC
   CLASSES ${classes}
   HEADERS "${wrapper_header_file}"
+  EXCLUDE_HEADER_TEST
 )
 
 vtk_module_link(Slicer::MRMLLogic PUBLIC ${ITK_LIBRARIES})

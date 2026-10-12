@@ -1209,15 +1209,16 @@ endif()
 # Subdirectories
 #-----------------------------------------------------------------------------
 
-add_subdirectory(Libs)
 # Build VTK modules here
-include(${Slicer_SOURCE_DIR}/SlicerCore/CMake/SlicerCoreModuleWrapper.cmake)
-include(${Slicer_CMAKE_DIR}/SlicerBuildVTKModules.cmake)
+include("${Slicer_SOURCE_DIR}/SlicerCore/CMake/SlicerCoreModuleWrapper.cmake") # provide export header compat
+include(SlicerBuildVTKModules)
+include(SlicerVTKModuleAutoInit)
 slicer_build_vtk_modules(
   SOURCE_DIR ${Slicer_SOURCE_DIR}
   INSTALL_HEADERS OFF
-  )
+)
 add_subdirectory(Base)
+add_subdirectory(Libs)
 add_subdirectory(Resources)
 add_subdirectory(Utilities/Scripts)
 if(Slicer_BUILD_EXTENSIONMANAGER_SUPPORT)

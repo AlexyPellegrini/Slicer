@@ -9,4 +9,5 @@ vtk_module_add_module(Slicer::GeneralizedReformatModuleMRML
   EXPORT_MACRO_PREFIX VTK_SLICER_GENERALIZEDREFORMAT_MODULE_MRML
   CLASSES ${classes}
   HEADERS ${wrapper_header_file}
+  EXCLUDE_HEADER_TEST
 )

@@ -1,7 +1,7 @@
 NAME
   Slicer::BaseLogic
 LIBRARY_NAME
-  vtkSlicerBaseLogic
+  SlicerBaseLogic
 DEPENDS
   VTK::ImagingGeneral
   VTK::WrappingPythonCore
@@ -13,4 +13,4 @@ TEST_DEPENDS
   VTK::TestingCore
   VTK::TestingRendering
 DESCRIPTION
-  "vtkSlicerBaseLogic"
+  "SlicerBaseLogic"

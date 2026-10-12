@@ -9,4 +9,5 @@ vtk_module_add_module(Slicer::TemplateKeyModuleMRML
   EXPORT_MACRO_PREFIX VTK_SLICER_TEMPLATEKEY_MODULE_MRML
   CLASSES ${classes}
   HEADERS ${wrapper_header_file}
+  EXCLUDE_HEADER_TEST
 )

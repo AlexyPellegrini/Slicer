@@ -53,6 +53,7 @@ vtk_module_add_module(Slicer::SegmentationCore
   EXPORT_MACRO_PREFIX vtkSegmentationCore
   CLASSES ${classes}
   HEADERS ${headers}
+  EXCLUDE_HEADER_TEST
 )
 
 vtk_module_link(Slicer::SegmentationCore PUBLIC vtkAddon)

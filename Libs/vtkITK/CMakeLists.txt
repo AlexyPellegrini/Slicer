@@ -101,6 +101,7 @@ vtk_module_add_module(Slicer::ITK
   CLASSES ${classes}
   SOURCES ${sources}
   HEADERS ${headers}
+  EXCLUDE_HEADER_TEST
 )
 
 set_source_files_properties(

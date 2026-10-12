@@ -25,7 +25,5 @@ vtk_module_add_module(Slicer::VolumeRenderingModuleMRMLDisplayableManager
   SOURCES ${vtk_object_factory_source}
   HEADERS ${wrapper_header_file}
   PRIVATE_HEADERS ${vtk_object_factory_header}
+  EXCLUDE_HEADER_TEST
 )
-
-#vtk_module_definitions(Slicer::VolumeRenderingModuleMRMLDisplayableManager PRIVATE
-#  "vtkSlicerVolumeRenderingModuleMRMLDisplayableManager_AUTOINIT=1(vtkSlicerVolumeRenderingModuleMRMLDisplayableManager)")

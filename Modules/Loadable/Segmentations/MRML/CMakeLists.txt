@@ -11,4 +11,5 @@ vtk_module_add_module(Slicer::SegmentationsModuleMRML
   EXPORT_MACRO_PREFIX VTK_SLICER_SEGMENTATIONS_MODULE_MRML
   CLASSES ${classes}
   HEADERS ${wrapper_header_file}
+  EXCLUDE_HEADER_TEST
 )

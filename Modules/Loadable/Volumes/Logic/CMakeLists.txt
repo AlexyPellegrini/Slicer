@@ -11,6 +11,7 @@ vtk_module_add_module(Slicer::VolumesModuleLogic
   EXPORT_MACRO_PREFIX VTK_SLICER_VOLUMES_MODULE_LOGIC
   CLASSES ${classes}
   HEADERS ${wrapper_header_file}
+  EXCLUDE_HEADER_TEST
 )
 
 vtk_module_link(Slicer::VolumesModuleLogic PRIVATE RapidJSON)

@@ -266,6 +266,7 @@ vtk_module_add_module(Slicer::MRMLCore
   CLASSES ${classes}
   HEADERS ${headers}
   PRIVATE_HEADERS ${version_header_file}
+  EXCLUDE_HEADER_TEST
 )
 
 vtk_module_link(Slicer::MRMLCore

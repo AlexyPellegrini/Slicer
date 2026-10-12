@@ -61,6 +61,7 @@ vtk_module_add_module(Slicer::BaseLogic
   EXPORT_MACRO_PREFIX VTK_SLICER_BASE_LOGIC
   CLASSES ${classes}
   HEADERS ${headers}
+  EXCLUDE_HEADER_TEST
 )
 
 vtk_module_link(Slicer::BaseLogic

@@ -37,6 +37,7 @@ vtk_module_add_module(Slicer::Teem
   EXPORT_MACRO_PREFIX VTK_Teem
   CLASSES ${classes}
   HEADERS "${wrapper_header_file}"
+  EXCLUDE_HEADER_TEST
 )
 
 vtk_module_include(Slicer::Teem PRIVATE ${Teem_INCLUDE_DIRS})

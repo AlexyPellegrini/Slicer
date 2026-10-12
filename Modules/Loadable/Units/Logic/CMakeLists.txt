@@ -9,4 +9,5 @@ vtk_module_add_module(Slicer::UnitsModuleLogic
   EXPORT_MACRO_PREFIX VTK_SLICER_UNITS_MODULE_LOGIC
   CLASSES ${classes}
   HEADERS ${wrapper_header_file}
+  EXCLUDE_HEADER_TEST
 )

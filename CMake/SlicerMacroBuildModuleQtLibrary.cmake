@@ -199,21 +199,7 @@ macro(SlicerMacroBuildModuleQtLibrary)
     )
 
   # Apply VTK module auto-initialization for linked modules that need it.
-  set(_vtk_autoinit_modules)
-  foreach(_vtk_autoinit_lib IN LISTS MODULEQTLIBRARY_TARGET_LIBRARIES)
-    if(TARGET "${_vtk_autoinit_lib}")
-      get_property(_vtk_autoinit_needs
-        TARGET "${_vtk_autoinit_lib}"
-        PROPERTY "INTERFACE_vtk_module_needs_autoinit")
-      if(_vtk_autoinit_needs AND DEFINED "${_vtk_autoinit_lib}_VTK_MODULE_NAME")
-        list(APPEND _vtk_autoinit_modules "${${_vtk_autoinit_lib}_VTK_MODULE_NAME}")
-      endif()
-    endif()
-  endforeach()
-  if(_vtk_autoinit_modules)
-    list(REMOVE_DUPLICATES _vtk_autoinit_modules)
-    vtk_module_autoinit(TARGETS ${lib_name} MODULES ${_vtk_autoinit_modules})
-  endif()
+  slicer_module_autoinit(TARGETS ${lib_name} MODULES ${MODULEQTLIBRARY_TARGET_LIBRARIES})
 
   # Apply user-defined properties to the library target.
   if(Slicer_LIBRARY_PROPERTIES)
