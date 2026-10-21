@@ -9,7 +9,7 @@ set(classes
   vtkSlicerTerminologyEntry
   )
 
-slicercore_generate_module_wrapper(
+slicer_generate_module_wrapper(
   HEADER_NAME "vtkSlicerTerminologiesModuleLogicExport.h"
   OUTPUT_VAR wrapper_header_file
 )

@@ -2,7 +2,7 @@ project(vtkSlicerSubjectHierarchyModuleLogic)
 
 set(classes vtkSlicerSubjectHierarchyModuleLogic)
 
-slicercore_generate_module_wrapper(
+slicer_generate_module_wrapper(
   HEADER_NAME "vtkSlicerSubjectHierarchyModuleLogicExport.h"
   OUTPUT_VAR wrapper_header_file
 )

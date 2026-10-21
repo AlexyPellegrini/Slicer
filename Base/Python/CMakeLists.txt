@@ -62,8 +62,9 @@ ctkMacroCompilePythonScript(
   TARGET_NAME SlicerBase
   SCRIPTS "${Slicer_PYTHON_SCRIPTS}"
   RESOURCES "${Slicer_PYTHON_RESOURCES}"
-  DESTINATION_DIR ${Slicer_BINARY_DIR}/lib/site-packages
-  INSTALL_DIR ${Slicer_INSTALL_BIN_DIR}
+  DESTINATION_DIR ${Slicer_BINARY_DIR}/${Slicer_SITE_PACKAGES_DIR}
+  INSTALL_DIR ${Slicer_INSTALL_SITE_PACKAGES_DIR}
+  NO_INSTALL_SUBDIR
   )
 
 # Generate a lazily-loading replacement for the eager "vtk" module distributed
@@ -73,8 +74,8 @@ ctkMacroCompilePythonScript(
 # submodule that provides it. This saves several hundred milliseconds at every
 # application startup. The module is generated from vtk.py.in by
 # Utilities/Scripts/GenerateLazyVtkModule.py, which fills in the attribute index.
-set(_lazy_vtk_module_template ${CMAKE_CURRENT_SOURCE_DIR}/vtk.py.in)
-set(_lazy_vtk_module ${Slicer_BINARY_DIR}/bin/Python/vtk.py)
+set(_lazy_vtk_module_template "${CMAKE_CURRENT_SOURCE_DIR}/vtk.py.in")
+set(_lazy_vtk_module "${Slicer_SITE_PACKAGES_DIR}/vtk.py")
 # The VTK Python package location is passed explicitly: during a fresh
 # superbuild the launcher settings of ${PYTHON_EXECUTABLE} may not
 # reference the VTK build tree yet when this rule runs.
@@ -83,22 +84,22 @@ if(DEFINED VTK_PYTHONPATH_LAUNCHER_BUILD)
   set(_lazy_vtk_pythonpath ${VTK_PYTHONPATH_LAUNCHER_BUILD})
 endif()
 add_custom_command(
-  OUTPUT ${_lazy_vtk_module}
+  OUTPUT "${_lazy_vtk_module}"
   COMMAND ${CMAKE_COMMAND} -E env "PYTHONPATH=${_lazy_vtk_pythonpath}"
-    ${PYTHON_EXECUTABLE}
-    ${Slicer_SOURCE_DIR}/Utilities/Scripts/GenerateLazyVtkModule.py
-    --template ${_lazy_vtk_module_template}
-    --output ${_lazy_vtk_module}
+    "${PYTHON_EXECUTABLE}"
+    "${Slicer_SOURCE_DIR}/Utilities/Scripts/GenerateLazyVtkModule.py"
+    --template "${_lazy_vtk_module_template}"
+    --output "${_lazy_vtk_module}"
   DEPENDS
-    ${Slicer_SOURCE_DIR}/Utilities/Scripts/GenerateLazyVtkModule.py
-    ${_lazy_vtk_module_template}
+    "${Slicer_SOURCE_DIR}/Utilities/Scripts/GenerateLazyVtkModule.py"
+    "${_lazy_vtk_module_template}"
   COMMENT "Generating lazily-loading vtk module"
   VERBATIM
   )
 add_custom_target(SlicerGenerateLazyVtkModule ALL
-  DEPENDS ${_lazy_vtk_module}
+  DEPENDS "${_lazy_vtk_module}"
   )
-install(FILES ${_lazy_vtk_module}
-  DESTINATION ${Slicer_INSTALL_BIN_DIR}/Python
+install(FILES "${_lazy_vtk_module}"
+  DESTINATION "${Slicer_INSTALL_SITE_PACKAGES_DIR}"
   COMPONENT Runtime
   )

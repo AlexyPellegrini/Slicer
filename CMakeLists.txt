@@ -1209,14 +1209,66 @@ endif()
 # Subdirectories
 #-----------------------------------------------------------------------------
 
-# Build VTK modules here
-include("${Slicer_SOURCE_DIR}/SlicerCore/CMake/SlicerCoreModuleWrapper.cmake") # provide export header compat
-include(SlicerBuildVTKModules)
+include(SlicerVTKModuleHeaderWrapper)
+include(SlicerVTKModuleBuild)
 include(SlicerVTKModuleAutoInit)
-slicer_build_vtk_modules(
-  SOURCE_DIR ${Slicer_SOURCE_DIR}
-  INSTALL_HEADERS OFF
+slicer_vtk_module_build(MODULES
+  # Base and libs
+  Slicer::BaseLogic
+  Slicer::RemoteIO
+  Slicer::ITK
+  Slicer::SegmentationCore
+  Slicer::Teem
+  Slicer::MRMLCore
+  Slicer::MRMLCLI
+  Slicer::MRMLLogic
+  Slicer::MRMLDisplayableManager
+  # Loadable modules
+  Slicer::AnnotationsModuleLogic
+  Slicer::AnnotationsModuleMRML
+  Slicer::CamerasModuleLogic
+  Slicer::ColorsModuleLogic
+  Slicer::ColorsModuleMRML
+  Slicer::ColorsModuleMRMLDisplayableManager
+  Slicer::ColorsModuleVTKWidgets
+  Slicer::CropVolumeModuleLogic
+  Slicer::CropVolumeModuleMRML
+  Slicer::DataModuleLogic
+  Slicer::DICOMLibModuleLogic
+  Slicer::GeneralizedReformatModuleLogic
+  Slicer::GeneralizedReformatModuleMRML
+  Slicer::MarkupsModuleLogic
+  Slicer::MarkupsModuleMRML
+  Slicer::MarkupsModuleMRMLDisplayableManager
+  Slicer::MarkupsModuleVTKWidgets
+  Slicer::ModelsModuleLogic
+  Slicer::MultiVolumeExplorerModuleLogic
+  Slicer::MultiVolumeExplorerModuleMRML
+  Slicer::PlotsModuleLogic
+  Slicer::ReformatModuleLogic
+  Slicer::SceneViewsModuleLogic
+  Slicer::SegmentationsModuleLogic
+  Slicer::SegmentationsModuleMRML
+  Slicer::SegmentationsModuleMRMLDisplayableManager
+  Slicer::SequencesModuleLogic
+  Slicer::SequencesModuleMRML
+  Slicer::SubjectHierarchyModuleLogic
+  Slicer::TablesModuleLogic
+  Slicer::TemplateKeyModuleMRML
+  Slicer::TemplateKeyModuleVTKWidgets
+  Slicer::TemplateKeyModuleLogic
+  Slicer::TerminologiesModuleLogic
+  Slicer::TextsModuleLogic
+  Slicer::TransformsModuleLogic
+  Slicer::TransformsModuleMRMLDisplayableManager
+  Slicer::UnitsModuleLogic
+  Slicer::ViewControllersModuleLogic
+  Slicer::VolumeRenderingModuleLogic
+  Slicer::VolumeRenderingModuleMRML
+  Slicer::VolumeRenderingModuleMRMLDisplayableManager
+  Slicer::VolumesModuleLogic
 )
+
 add_subdirectory(Base)
 add_subdirectory(Libs)
 add_subdirectory(Resources)

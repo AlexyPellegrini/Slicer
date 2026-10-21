@@ -6,7 +6,7 @@ vtk_module_find_package(
 
 set(classes vtkSlicerTransformLogic)
 
-slicercore_generate_module_wrapper(
+slicer_generate_module_wrapper(
   HEADER_NAME "vtkSlicerTransformsModuleLogicExport.h"
   OUTPUT_VAR wrapper_header_file
 )

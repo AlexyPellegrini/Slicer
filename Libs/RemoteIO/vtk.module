@@ -1,7 +1,7 @@
 NAME
   Slicer::RemoteIO
 LIBRARY_NAME
-  vtkRemoteIO
+  RemoteIO
 DEPENDS
   Slicer::MRMLCore
 TEST_DEPENDS

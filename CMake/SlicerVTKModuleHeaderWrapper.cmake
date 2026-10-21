@@ -1,7 +1,7 @@
 #[==[.rst:
-.. cmake:command:: vtksdk_build_modules
+.. cmake:command:: slicer_generate_module_wrapper
  
-  Generate a compatibility header that enables Slicer code to still be compiled as vtk_modules
+  Generate a compatibility header that enables Slicer code to still be compiled as VTK modules.
 
   - `HEADER_NAME`: Name of generated header, should be the name of the export header used in Slicer codebase.
   - `OUTPUT_VAR`: Optional output variable name, if specified it will be set to the path of header file.
@@ -9,20 +9,20 @@
 
   For example, in Slicer::MRMLCore module, old export header was named "vtkMRMLCoreExport.h",
   but with given module library name, the generated export header is "MRMLCoreModule.h", so the command would be:
-  `slicercore_generate_module_wrapper(Slicer::MRMLCore "vtkMRMLCoreExport.h")`
+  `slicer_generate_module_wrapper(Slicer::MRMLCore "vtkMRMLCoreExport.h")`
   "vtkMRMLCoreExport.h" will include "MRMLCoreModule.h".
 
   Note that this command must only be called in the CMakeLists.txt of a VTK module!
 
   .. code-block:: cmake
 
-  slicercore_generate_module_wrapper(
+  slicer_generate_module_wrapper(
     HEADER_NAME <name>
     [OUTPUT_VAR <name>]
     [ADDITIONAL_INCLUDES <names...>]
     )
 #]==]
-function(slicercore_generate_module_wrapper)
+function(slicer_generate_module_wrapper)
   cmake_parse_arguments(PARSE_ARGV 0 arg
     ""
     "HEADER_NAME;OUTPUT_VAR"

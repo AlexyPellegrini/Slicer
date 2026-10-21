@@ -19,7 +19,7 @@ configure_file(
   ${CMAKE_CURRENT_BINARY_DIR}/${configure_header_file}
 )
 
-slicercore_generate_module_wrapper(
+slicer_generate_module_wrapper(
   HEADER_NAME "vtkMRMLDisplayableManagerExport.h"
   OUTPUT_VAR wrapper_header_file
   ADDITIONAL_INCLUDES ${configure_header_file}

@@ -1,4 +1,4 @@
-set(KIT ${PROJECT_NAME})
+set(KIT MRMLCore)
 
 set(EXTRA_INCLUDE "vtkMRMLDebugLeaksMacro.h\"\n\#include <iostream>\n\#include \"vtkTestingOutputWindow.h")
 set(CMAKE_TESTDRIVER_BEFORE_TESTMAIN "DEBUG_LEAKS_ENABLE_EXIT_ERROR();\nTESTING_OUTPUT_ASSERT_WARNINGS_ERRORS(0);" )

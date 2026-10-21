@@ -10,7 +10,7 @@ vtk_module_find_package(
   COMPONENTS ${ModuleDescriptionParser_ITK_COMPONENTS}
 )
 
-slicercore_generate_module_wrapper(
+slicer_generate_module_wrapper(
   HEADER_NAME "vtkMRMLCLIExport.h"
   OUTPUT_VAR wrapper_header_file
 )

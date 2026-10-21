@@ -1,6 +1,6 @@
 set(classes vtkSlicerColorLogic)
 
-slicercore_generate_module_wrapper(
+slicer_generate_module_wrapper(
   HEADER_NAME "vtkSlicerColorsModuleLogicExport.h"
   OUTPUT_VAR wrapper_header_file
 )

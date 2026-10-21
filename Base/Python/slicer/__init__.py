@@ -125,6 +125,12 @@
 
 """
 
+# The Python wrappers of the Slicer libraries and of the loadable modules are
+# installed in separate "slicer" packages.
+# Extending __path__ makes all of them importable as part of
+# this package (for example "slicer.vtkSlicerVolumesModuleLogic").
+import pkgutil as _pkgutil
+__path__ = _pkgutil.extend_path(__path__, __name__)
 
 # -----------------------------------------------------------------------------
 def _createModule(name, globals, docstring):

@@ -13,7 +13,7 @@ vtk_object_factory_configure(
 
 list(APPEND classes vtkMRMLMarkupsDisplayableManagerHelper)
 
-slicercore_generate_module_wrapper(
+slicer_generate_module_wrapper(
   HEADER_NAME "vtkSlicerMarkupsModuleMRMLDisplayableManagerExport.h"
   OUTPUT_VAR wrapper_header_file
 )

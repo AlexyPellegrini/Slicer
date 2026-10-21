@@ -38,7 +38,7 @@ include(${ITK_USE_FILE})
 #-----------------------------------------------------------------------------
 set(${MODULE_NAME}_TARGET_LIBRARIES
   vtkITK ModuleDescriptionParser
-  MRMLCore SlicerBaseLogic SlicerBaseCLI
+  MRMLCore Slicer::BaseLogic SlicerBaseCLI
   ${ITK_LIBRARIES}
   ${VTK_LIBRARIES}
   )

@@ -2,7 +2,7 @@ vtk_module_find_package(PACKAGE RapidJSON PRIVATE_IF_SHARED)
 
 set(classes vtkSlicerVolumesLogic)
 
-slicercore_generate_module_wrapper(
+slicer_generate_module_wrapper(
   HEADER_NAME "vtkSlicerVolumesModuleLogicExport.h"
   OUTPUT_VAR wrapper_header_file
 )

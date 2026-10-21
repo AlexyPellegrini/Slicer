@@ -8,7 +8,7 @@ set(classes
   vtkSlicerSegmentEditorLogic
 )
 
-slicercore_generate_module_wrapper(
+slicer_generate_module_wrapper(
   HEADER_NAME "vtkSlicerSegmentationsModuleLogicExport.h"
   OUTPUT_VAR wrapper_header_file
 )

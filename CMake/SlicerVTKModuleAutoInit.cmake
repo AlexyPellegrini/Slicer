@@ -1,5 +1,9 @@
 function(slicer_module_autoinit)
-  cmake_parse_arguments(PARSE_ARGV 0 arg "" "" "TARGETS;MODULES")
+  cmake_parse_arguments(PARSE_ARGV 0 arg
+    ""
+    ""
+    "TARGETS;MODULES"
+  )
 
   # Apply VTK module auto-initialization for linked modules that need it.
   set(modules)
@@ -22,7 +26,6 @@ function(slicer_module_autoinit)
   endforeach()
   if(modules)
     list(REMOVE_DUPLICATES modules)
-    message(STATUS "Autoinitializing ${arg_TARGETS} with modules ${modules}.")
     vtk_module_autoinit(TARGETS ${arg_TARGETS} MODULES ${modules})
   endif()
 endfunction()

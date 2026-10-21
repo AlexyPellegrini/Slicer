@@ -1,6 +1,6 @@
 set(classes vtkSlicerPlotsLogic)
 
-slicercore_generate_module_wrapper(
+slicer_generate_module_wrapper(
   HEADER_NAME "vtkSlicerPlotsModuleLogicExport.h"
   OUTPUT_VAR wrapper_header_file
 )

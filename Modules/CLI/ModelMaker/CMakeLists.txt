@@ -15,7 +15,7 @@ include(${SlicerExecutionModel_USE_FILE})
 SEMMacroBuildCLI(
   NAME ${MODULE_NAME}
   LOGO_HEADER ${Slicer_SOURCE_DIR}/Resources/NAMICLogo.h
-  TARGET_LIBRARIES vtkITK ModuleDescriptionParser MRMLCore SlicerBaseLogic SlicerBaseCLI ${VTK_LIBRARIES}
+  TARGET_LIBRARIES vtkITK ModuleDescriptionParser MRMLCore Slicer::BaseLogic SlicerBaseCLI ${VTK_LIBRARIES}
   )
 
 #-----------------------------------------------------------------------------

@@ -1,6 +1,6 @@
 set(classes vtkSlicerTemplateKeyLogic)
 
-slicercore_generate_module_wrapper(
+slicer_generate_module_wrapper(
   HEADER_NAME "vtkSlicerTemplateKeyModuleLogicExport.h"
   OUTPUT_VAR wrapper_header_file
 )

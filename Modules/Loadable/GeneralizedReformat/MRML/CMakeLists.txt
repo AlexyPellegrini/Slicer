@@ -1,6 +1,6 @@
 set(classes vtkMRMLAbstractVolumeResampler)
 
-slicercore_generate_module_wrapper(
+slicer_generate_module_wrapper(
   HEADER_NAME "vtkSlicerGeneralizedReformatModuleMRMLExport.h"
   OUTPUT_VAR wrapper_header_file
 )

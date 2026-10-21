@@ -178,20 +178,15 @@ set(SLICER_ADDITIONAL_PATH_ENVVARS_BUILD
 
 # PYTHONPATH
 if(Slicer_USE_PYTHONQT)
-
   set(SLICER_PYTHONPATH_BUILD
-    "<APPLAUNCHER_SETTINGS_DIR>/bin/<CMAKE_CFG_INTDIR>"
-    "<APPLAUNCHER_SETTINGS_DIR>/bin/Python"
-    # Slicer's Python package and its wrapped modules are installed side by side
-    # in lib/site-packages/slicer. The package directory itself is on the path so
-    # that the wrapped modules can be imported both as "slicer.<module>" and by
-    # their bare name (e.g. mrml.py does "from MRMLCore import *").
-    "<APPLAUNCHER_SETTINGS_DIR>/lib/site-packages/slicer"
-    "<APPLAUNCHER_SETTINGS_DIR>/lib/site-packages"
+    "<APPLAUNCHER_SETTINGS_DIR>/${Slicer_SITE_PACKAGES_DIR}"
+    "<APPLAUNCHER_SETTINGS_DIR>/${Slicer_SITE_PACKAGES_DIR}/slicer"
     )
   if(Slicer_BUILD_QTLOADABLEMODULES)
     list(APPEND SLICER_PYTHONPATH_BUILD
       "<APPLAUNCHER_SETTINGS_DIR>/${Slicer_QTLOADABLEMODULES_LIB_DIR}/<CMAKE_CFG_INTDIR>"
+      "<APPLAUNCHER_SETTINGS_DIR>/${Slicer_QTLOADABLEMODULES_LIB_DIR}/site-packages"
+      "<APPLAUNCHER_SETTINGS_DIR>/${Slicer_QTLOADABLEMODULES_LIB_DIR}"
       "<APPLAUNCHER_SETTINGS_DIR>/${Slicer_QTLOADABLEMODULES_PYTHON_LIB_DIR}"
       )
   endif()
@@ -323,10 +318,18 @@ set(SLICER_ADDITIONAL_PATH_ENVVARS_INSTALLED
 
 # PYTHONPATH
 if(Slicer_USE_PYTHONQT)
+  # The "slicer" Python package and the Python wrappers of the core libraries
+  # are installed in the non-standard site-packages directory, side by side with
+  # VTK's Python modules. The Python wrappers of the loadable modules are
+  # installed in a "slicer" directory next to the loadable module libraries:
+  # pkgutil.extend_path() in slicer/__init__.py merges them.
   set(SLICER_PYTHONPATH_INSTALLED
+    "<APPLAUNCHER_SETTINGS_DIR>/../${Slicer_SITE_PACKAGES_DIR}"
+    "<APPLAUNCHER_SETTINGS_DIR>/../${Slicer_SITE_PACKAGES_DIR}/slicer"
     "<APPLAUNCHER_SETTINGS_DIR>/../${Slicer_LIB_DIR}"
     "<APPLAUNCHER_SETTINGS_DIR>/../${Slicer_QTSCRIPTEDMODULES_LIB_DIR}"
     "<APPLAUNCHER_SETTINGS_DIR>/../${Slicer_QTLOADABLEMODULES_LIB_DIR}"
+    "<APPLAUNCHER_SETTINGS_DIR>/../${Slicer_QTLOADABLEMODULES_SITE_PACKAGES_DIR}"
     "<APPLAUNCHER_SETTINGS_DIR>/../lib/vtkTeem"
     "<APPLAUNCHER_SETTINGS_DIR>/../bin/Python"
     "<APPLAUNCHER_SETTINGS_DIR>/../${Slicer_QTLOADABLEMODULES_PYTHON_LIB_DIR}"

@@ -1,6 +1,6 @@
 set(classes vtkSlicerTextsLogic)
 
-slicercore_generate_module_wrapper(
+slicer_generate_module_wrapper(
   HEADER_NAME "vtkSlicerTextsModuleLogicExport.h"
   OUTPUT_VAR wrapper_header_file
 )

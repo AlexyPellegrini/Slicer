@@ -17,7 +17,7 @@ vtk_module_find_package(PACKAGE Teem PRIVATE_IF_SHARED)
 # --------------------------------------------------------------------------
 # Configure headers
 # --------------------------------------------------------------------------
-slicercore_generate_module_wrapper(
+slicer_generate_module_wrapper(
   HEADER_NAME "vtkTeemExport.h"
   OUTPUT_VAR wrapper_header_file
 )

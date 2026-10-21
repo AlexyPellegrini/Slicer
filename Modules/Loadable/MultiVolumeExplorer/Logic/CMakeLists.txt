@@ -9,7 +9,7 @@ vtk_module_find_package(
 
 set(classes vtkSlicerMultiVolumeExplorerLogic)
 
-slicercore_generate_module_wrapper(
+slicer_generate_module_wrapper(
   HEADER_NAME "vtkSlicerMultiVolumeExplorerModuleLogicExport.h"
   OUTPUT_VAR wrapper_header_file
 )

@@ -25,7 +25,7 @@ vtk_module_find_package(PACKAGE vtkAddon)
 # Configure headers
 # --------------------------------------------------------------------------
 
-slicercore_generate_module_wrapper(
+slicer_generate_module_wrapper(
   HEADER_NAME "vtkRemoteIOExport.h"
   OUTPUT_VAR wrapper_header_file
 )

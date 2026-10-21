@@ -13,7 +13,7 @@ vtk_object_factory_configure(
   EXPORT_MACRO "VTK_SLICER_SEGMENTATIONS_MODULE_MRMLDISPLAYABLEMANAGER_EXPORT"
 )
 
-slicercore_generate_module_wrapper(
+slicer_generate_module_wrapper(
   HEADER_NAME "vtkSlicerSegmentationsModuleMRMLDisplayableManagerExport.h"
   OUTPUT_VAR wrapper_header_file
 )
