@@ -174,10 +174,10 @@ function(slicer_vtk_module_build)
   # - after: "<root>/lib/Slicer-X.Y/qt-loadable-modules/site-packages/slicer/Name.[pyd|so|dylib]"
   if(Slicer_USE_PYTHONQT)
     foreach(module IN LISTS libs_modules)
-      _slicer_add_compatibility_module("${module}" "${Slicer_LIB_DIR}")
+      _slicer_add_compatibility_module("${module}" "${Slicer_SITE_PACKAGES_DIR}")
     endforeach()
     foreach(module IN LISTS loadable_modules)
-      _slicer_add_compatibility_module("${module}" "${Slicer_QTLOADABLEMODULES_LIB_DIR}")
+      _slicer_add_compatibility_module("${module}" "${Slicer_QTLOADABLEMODULES_LIB_DIR}/site-packages")
     endforeach()
   endif()
 endfunction()
@@ -203,16 +203,16 @@ macro(_slicer_define_compatibility_variable_for_module module_name legacy_name)
   _slicer_define_compatibility_variable("${legacy_name}_INCLUDE_DIRS" "$<TARGET_PROPERTY:${module_name},INTERFACE_INCLUDE_DIRECTORIES>")
 endmacro()
 
-function(_slicer_add_compatibility_module module legacy_stem)
+function(_slicer_add_compatibility_module module stem)
   vtk_module_get_property("${module}"
     PROPERTY INTERFACE_vtk_module_library_name
     VARIABLE lib_name
   )
-  file(WRITE "${CMAKE_BINARY_DIR}/${legacy_stem}/${lib_name}Python.py"
+  file(WRITE "${CMAKE_BINARY_DIR}/${stem}/${lib_name}Python.py"
     "from slicer.${lib_name} import *"
   )
   install(
-    FILES "${CMAKE_BINARY_DIR}/${legacy_stem}/${lib_name}Python.py"
-    DESTINATION "${Slicer_INSTALL_ROOT}${legacy_stem}"
+    FILES "${CMAKE_BINARY_DIR}/${stem}/${lib_name}Python.py"
+    DESTINATION "${Slicer_INSTALL_ROOT}${stem}"
   )
 endfunction()

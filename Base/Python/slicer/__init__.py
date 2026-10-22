@@ -125,13 +125,6 @@
 
 """
 
-# The Python wrappers of the Slicer libraries and of the loadable modules are
-# installed in separate "slicer" packages.
-# Extending __path__ makes all of them importable as part of
-# this package (for example "slicer.vtkSlicerVolumesModuleLogic").
-import pkgutil as _pkgutil
-__path__ = _pkgutil.extend_path(__path__, __name__)
-
 # -----------------------------------------------------------------------------
 def _createModule(name, globals, docstring):
     import sys
@@ -221,6 +214,18 @@ for kit in available_kits:
             print(detail)
 
     del kit
+
+# The Python wrappers of Slicer's loadable modules are installed in separate "slicer" packages.
+# Extending __path__ makes all of them importable as part of this package.
+from pkgutil import extend_path, iter_modules
+from fnmatch import fnmatch
+from importlib import import_module
+__path__ = extend_path(__path__, __name__)
+for _, module_name, is_pkg in iter_modules(__path__):
+    if fnmatch(module_name, "vtkSlicer*Module*"):
+        module = import_module(f"{__name__}.{module_name}")
+        symbols = [name for name in dir(module) if not name.startswith("_")]
+        globals().update({name: getattr(module, name) for name in symbols})
 
 # -----------------------------------------------------------------------------
 # Cleanup: Removing things the user shouldn't have to see.
