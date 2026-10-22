@@ -26,3 +26,4 @@ vtk_module_add_module(Slicer::MRMLCLI
 
 vtk_module_link(Slicer::MRMLCLI PUBLIC ${ITK_LIBRARIES} PRIVATE ModuleDescriptionParser)
 vtk_module_include(Slicer::MRMLCLI PRIVATE ${ModuleDescriptionParser_INCLUDE_DIRS})
+vtk_module_set_property(Slicer::MRMLCLI PROPERTY FOLDER VALUE MRMLCLI)

@@ -49,3 +49,9 @@ vtk_module_link(Slicer::Teem
   PRIVATE
     ${Teem_LIBRARIES}
 )
+
+vtk_module_set_property(Slicer::Teem PROPERTY FOLDER VALUE vtkTeem)
+
+if(BUILD_TESTING)
+  add_subdirectory(Testing)
+endif()

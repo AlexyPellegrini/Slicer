@@ -11,3 +11,9 @@ vtk_module_add_module(Slicer::VolumeRenderingModuleLogic
   HEADERS ${wrapper_header_file}
   EXCLUDE_HEADER_TEST
 )
+
+vtk_module_set_property(Slicer::VolumeRenderingModuleLogic PROPERTY FOLDER VALUE Module-VolumeRendering)
+
+if(BUILD_TESTING)
+  add_subdirectory(Testing)
+endif()

@@ -19,3 +19,9 @@ vtk_module_add_module(Slicer::TransformsModuleLogic
 )
 
 vtk_module_link(Slicer::TransformsModuleLogic PUBLIC ${ITK_LIBRARIES})
+
+vtk_module_set_property(Slicer::TransformsModuleLogic PROPERTY FOLDER VALUE Module-Transforms)
+
+if(BUILD_TESTING)
+  add_subdirectory(Testing)
+endif()

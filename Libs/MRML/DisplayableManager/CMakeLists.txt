@@ -143,3 +143,9 @@ vtk_module_link(Slicer::MRMLDisplayableManager
   PUBLIC ${ITK_LIBRARIES}
   PRIVATE VTK::WrappingPythonCore Python3::Module
 )
+
+vtk_module_set_property(Slicer::MRMLDisplayableManager PROPERTY FOLDER VALUE MRMLDisplayableManager)
+
+if(BUILD_TESTING)
+  add_subdirectory(Testing)
+endif()

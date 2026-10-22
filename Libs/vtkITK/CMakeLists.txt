@@ -110,3 +110,9 @@ set_source_files_properties(
 )
 
 vtk_module_link(Slicer::ITK PUBLIC ${ITK_LIBRARIES} vtkAddon)
+
+vtk_module_set_property(Slicer::ITK PROPERTY FOLDER VALUE vtkITK)
+
+if(BUILD_TESTING)
+  add_subdirectory(Testing)
+endif()

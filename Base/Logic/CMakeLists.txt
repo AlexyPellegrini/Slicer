@@ -79,3 +79,7 @@ vtk_module_include(Slicer::BaseLogic
     ${ModuleDescriptionParser_INCLUDE_DIRS}
     ${LibArchive_INCLUDE_DIRS}
 )
+
+if(BUILD_TESTING)
+  add_subdirectory(Testing)
+endif()

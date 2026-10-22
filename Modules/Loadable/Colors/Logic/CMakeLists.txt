@@ -11,3 +11,9 @@ vtk_module_add_module(Slicer::ColorsModuleLogic
   HEADERS ${wrapper_header_file}
   EXCLUDE_HEADER_TEST
 )
+
+vtk_module_set_property(Slicer::ColorsModuleLogic PROPERTY FOLDER VALUE Module-Colors)
+
+if(BUILD_TESTING)
+  add_subdirectory(Testing)
+endif()

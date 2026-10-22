@@ -116,9 +116,8 @@ create_test_sourcelist(Tests ${KIT}CxxTests.cxx
   )
 
 ctk_add_executable_utf8(${KIT}CxxTests ${Tests} vtkMRMLSceneEventRecorder.cxx)
-target_link_libraries(${KIT}CxxTests ${KIT})
-
-set_target_properties(${KIT}CxxTests PROPERTIES FOLDER ${${PROJECT_NAME}_FOLDER})
+target_link_libraries(${KIT}CxxTests PRIVATE Slicer::MRMLCore)
+set_target_properties(${KIT}CxxTests PROPERTIES FOLDER MRMLCore)
 
 #-----------------------------------------------------------------------------
 set(DATAPATH "${CMAKE_CURRENT_SOURCE_DIR}/TestData")

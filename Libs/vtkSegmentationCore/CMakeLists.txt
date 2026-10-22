@@ -63,3 +63,9 @@ if (vtkSegmentationCore_USE_UUID)
   # for gdcm::UIDGenerator.
   vtk_module_link(Slicer::SegmentationCore PRIVATE gdcmMSFF)
 endif()
+
+vtk_module_set_property(Slicer::SegmentationCore PROPERTY FOLDER VALUE vtkSegmentationCore)
+
+if(BUILD_TESTING)
+  add_subdirectory(Testing)
+endif()

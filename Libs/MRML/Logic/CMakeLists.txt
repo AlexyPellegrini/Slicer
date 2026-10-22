@@ -42,3 +42,9 @@ vtk_module_add_module(Slicer::MRMLLogic
 )
 
 vtk_module_link(Slicer::MRMLLogic PUBLIC ${ITK_LIBRARIES})
+
+vtk_module_set_property(Slicer::MRMLLogic PROPERTY FOLDER VALUE MRMLLogic)
+
+if(BUILD_TESTING)
+  add_subdirectory(Testing)
+endif()

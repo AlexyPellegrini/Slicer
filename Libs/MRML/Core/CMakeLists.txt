@@ -287,3 +287,9 @@ vtk_module_include(Slicer::MRMLCore
     ${LibArchive_INCLUDE_DIRS}
     ${Teem_INCLUDE_DIRS}
 )
+
+vtk_module_set_property(Slicer::MRMLCore PROPERTY FOLDER VALUE MRMLCore)
+
+if(BUILD_TESTING)
+  add_subdirectory(Testing)
+endif()
